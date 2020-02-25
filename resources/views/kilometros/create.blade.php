@@ -18,11 +18,11 @@
         Session::get('Mensaje')
 }}
 @endif
-<form action="{{ url('/clientes') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
+<form action="{{ url('/kilometros') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
 
 {{ csrf_field() }}
 
-@include('clientes.form', ['Modo'=>'Crear'])
+@include('kilometros.form', ['Modo'=>'Crear'])
 
 </form>
 

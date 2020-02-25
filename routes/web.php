@@ -20,7 +20,11 @@ Route::resource('/vehiculos','VehiculosController')->middleware('auth');
 
 Route::resource('/clientes','ClientesController')->middleware('auth');
 
-Route::resource('/arriendos','ArriendosController')->middleware('auth');
+Route::resource('/conductores','ConductorController')->middleware('auth');
+
+Route::resource('/kilometros','KilometrosController')->middleware('auth');
+
+
 
 
 

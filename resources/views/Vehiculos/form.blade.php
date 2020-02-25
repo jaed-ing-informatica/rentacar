@@ -15,54 +15,54 @@
                             <div class="col-md-6 col-md-offset-5">
 
 
-                                    <div class="from-group">
-                                    <label for="Rut" class="control-label {{ $errors->has('Rut')?'is-invalid':'' }}">{{ 'Rut' }}</label>
-                                    <input type="text" class="form-control" name="Rut" id="Rut" value="{{ isset($vehiculo->Rut)?$vehiculo->Rut:old('Rut') }}">
-                                    {!! $errors->first('Rut','<div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                        <div class="from-group">
+                                            <label for="Rut" class="control-label {{ $errors->has('Rut')?'is-invalid':'' }}">{{ 'Rut' }}</label>
+                                            <input type="text" class="form-control" name="Rut" id="Rut" value="{{ isset($vehiculo->Rut)?$vehiculo->Rut:old('Rut') }}">
+                                            {!! $errors->first('Rut','<div class="invalid-feedback">:message</div>') !!}
+                                        </div>
 
-                                    <div class="from-group">
-                                    <label for="Propietario" class="control-label {{ $errors->has('Propietario')?'is-invalid':'' }}">{{ 'Propietario' }}</label>
-                                    <input type="text" class="form-control" name="Propietario" id="Propietario" value="{{ isset($vehiculo->Propietario)?$vehiculo->Propietario:old('Propietario') }}">
-                                    {!! $errors->first('Propietario','<div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                        <div class="from-group">
+                                            <label for="Propietario" class="control-label {{ $errors->has('Propietario')?'is-invalid':'' }}">{{ 'Propietario' }}</label>
+                                            <input type="text" class="form-control" name="Propietario" id="Propietario" value="{{ isset($vehiculo->Propietario)?$vehiculo->Propietario:old('Propietario') }}">
+                                            {!! $errors->first('Propietario','<div class="invalid-feedback">:message</div>') !!}
+                                        </div>
 
-                                    <div class="from-group">
-                                        <label for="TipoVehiculo" class="control-label">{{ 'TipoVehiculo' }}</label>
-                                        <input type="text" class="form-control {{ $errors->has('TipoVehiculo')?'is-invalid':'' }}" name="TipoVehiculo" id="TipoVehiculo" value="{{ isset($vehiculo->TipoVehiculo)?$vehiculo->TipoVehiculo:old('TipoVehiculo') }}">
-                                    {!! $errors->first('TipoVehiculo','<div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                        <div class="from-group">
+                                            <label for="TipoVehiculo" class="control-label">{{ 'TipoVehiculo' }}</label>
+                                            <input type="text" class="form-control {{ $errors->has('TipoVehiculo')?'is-invalid':'' }}" name="TipoVehiculo" id="TipoVehiculo" value="{{ isset($vehiculo->TipoVehiculo)?$vehiculo->TipoVehiculo:old('TipoVehiculo') }}">
+                                            {!! $errors->first('TipoVehiculo','<div class="invalid-feedback">:message</div>') !!}
+                                        </div>
 
-                                    <div class="from-group">
-                                    <label for="Marca" class="control-label {{ $errors->has('Marca')?'is-invalid':'' }}">{{ 'Marca' }}</label>
-                                    <input type="text" class="form-control" name="Marca" id="Marca" value="{{ isset($vehiculo->Marca)?$vehiculo->Marca:old('Marca') }}">
-                                    {!! $errors->first('Marca','<div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                        <div class="from-group">
+                                            <label for="Marca" class="control-label {{ $errors->has('Marca')?'is-invalid':'' }}">{{ 'Marca' }}</label>
+                                            <input type="text" class="form-control" name="Marca" id="Marca" value="{{ isset($vehiculo->Marca)?$vehiculo->Marca:old('Marca') }}">
+                                            {!! $errors->first('Marca','<div class="invalid-feedback">:message</div>') !!}
+                                        </div>
 
-                                    <div class="from-group">
-                                    <label for="Modelo" class="control-label {{ $errors->has('Modelo')?'is-invalid':'' }}">{{ 'Modelo' }}</label>
-                                    <input type="text" class="form-control" name="Modelo" id="Modelo" value="{{ isset($vehiculo->Modelo)?$vehiculo->Modelo:old('Modelo') }}">
-                                    {!! $errors->first('Modelo','<div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                        <div class="from-group">
+                                            <label for="Modelo" class="control-label {{ $errors->has('Modelo')?'is-invalid':'' }}">{{ 'Modelo' }}</label>
+                                            <input type="text" class="form-control" name="Modelo" id="Modelo" value="{{ isset($vehiculo->Modelo)?$vehiculo->Modelo:old('Modelo') }}">
+                                            {!! $errors->first('Modelo','<div class="invalid-feedback">:message</div>') !!}
+                                        </div>
 
-                                    <div class="from-group">
-                                    <label for="Patente" class="control-label {{ $errors->has('Patente')?'is-invalid':'' }}">{{ 'Patente' }}</label>
-                                    <input type="text" class="form-control" name="Patente" id="Patente" value="{{ isset($vehiculo->Patente)?$vehiculo->Patente:old('Patente') }}">
-                                    {!! $errors->first('Patente','<div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                        <div class="from-group">
+                                            <label for="Patente" class="control-label {{ $errors->has('Patente')?'is-invalid':'' }}">{{ 'Patente' }}</label>
+                                            <input type="text" class="form-control" name="Patente" id="Patente" value="{{ isset($vehiculo->Patente)?$vehiculo->Patente:old('Patente') }}">
+                                            {!! $errors->first('Patente','<div class="invalid-feedback">:message</div>') !!}
+                                        </div>
                                     </div>
                                     <div class="col-md-6 col-md-offset-5">
-                                    <div class="from-group">
-                                    <label for="Año" class="control-label {{ $errors->has('Año')?'is-invalid':'' }}">{{ 'Año' }}</label>
-                                    <input type="text" class="form-control" name="Año" id="Año" value="{{ isset($vehiculo->Año)?$vehiculo->Año:old('Año') }}">
-                                    {!! $errors->first('Año','<div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                        <div class="from-group">
+                                            <label for="Año" class="control-label {{ $errors->has('Año')?'is-invalid':'' }}">{{ 'Año' }}</label>
+                                            <input type="text" class="form-control" name="Año" id="Año" value="{{ isset($vehiculo->Año)?$vehiculo->Año:old('Año') }}">
+                                            {!! $errors->first('Año','<div class="invalid-feedback">:message</div>') !!}
+                                        </div>
 
-                                    <div class="from-group">
-                                    <label for="Color" class="control-label {{ $errors->has('Color')?'is-invalid':'' }}">{{ 'Color' }}</label>
-                                    <input type="text" class="form-control" name="Color" id="Color" value="{{ isset($vehiculo->Color)?$vehiculo->Color:old('Color') }}">
-                                    {!! $errors->first('Color','<div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                        <div class="from-group">
+                                            <label for="Color" class="control-label {{ $errors->has('Color')?'is-invalid':'' }}">{{ 'Color' }}</label>
+                                            <input type="text" class="form-control" name="Color" id="Color" value="{{ isset($vehiculo->Color)?$vehiculo->Color:old('Color') }}">
+                                            {!! $errors->first('Color','<div class="invalid-feedback">:message</div>') !!}
+                                        </div>
 
                                     <div class="from-group">
                                     <label for="NumeroChasis" class="control-label {{ $errors->has('NumeroChasis')?'is-invalid':'' }}">{{ 'NumeroChasis' }}</label>

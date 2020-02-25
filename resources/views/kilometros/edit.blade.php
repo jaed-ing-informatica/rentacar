@@ -9,11 +9,11 @@
 }}
 @endif
 
-<form action="{{ url('/clientes/' . $cliente->id) }}" class="form-horizontal" method="post" enctype="multipart/form-data">
+<form action="{{ url('/kilometros/' . $kilometro->id) }}" class="form-horizontal" method="post" enctype="multipart/form-data">
 {{ csrf_field() }}
 {{ method_field('PATCH') }}
 
-@include('clientes.form', ['Modo'=>'editar'])
+@include('kilometros.form', ['Modo'=>'editar'])
 
 
 </form>
