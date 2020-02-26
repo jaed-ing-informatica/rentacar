@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Santiago',
 
     /*
     |--------------------------------------------------------------------------
@@ -79,8 +79,7 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------

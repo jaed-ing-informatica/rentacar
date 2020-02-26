@@ -1,4 +1,4 @@
-@extends('layouts')
+@extends('layouts.admin')
 @section('content')
 <div class="container">
     @if(Session::has('Mensaje'))
@@ -38,7 +38,7 @@
                     <td>{{ $vehiculo->Tipo }} | {{ $vehiculo->Marca }} | {{ $vehiculo->Modelo }} | {{ $vehiculo->Patente }}</td>
                     <td>{{ $vehiculo->Año }} | {{ $vehiculo->Color }} | {{ $vehiculo->NumeroChasis }}</td>
                     <td>{{ $vehiculo->Combustible }}</td>
-                    <td>{{ $vehiculo->Estado }}</td>
+                    <td><button class="btn btn-success">{{ $vehiculo->Estado }}</input></td>
                     <td>
                         
                      <!--<form action="{{ url('/vehiculos/'.$vehiculo->id) }}" method="post" style="display: inline">
@@ -47,9 +47,9 @@
                            <button type="submit" onclick="return confirm('¿Desea Borrar?')" class="btn btn-danger">Borrar</button>
                     </form>-->
                         <!--<a href="{{ url('/vehiculos/'.$vehiculo->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
-                        <a href="{{ url('/clientes/') }}" class="btn btn-success btn-block">Entrega</a>
+                        <a href="{{ url('/clientes/') }}" class="btn btn-warning btn-block">Entrega</a>
                         <!--<a href="{{ url('/clientes/create') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
-                        <a href="{{ url('/galerias') }}" class="btn btn-primary btn-block">Recepción</a>
+                        <a href="{{ url('/galerias') }}" class="btn btn-info btn-block">Recepción</a>
                     </td>
 
                 </tr>

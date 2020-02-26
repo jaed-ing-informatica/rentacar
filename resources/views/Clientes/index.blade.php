@@ -1,4 +1,4 @@
-@extends('layouts')
+@extends('layouts.admin')
 @section('content')
 <div class="container">
     @if(Session::has('Mensaje'))

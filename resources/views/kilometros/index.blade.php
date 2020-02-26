@@ -31,7 +31,7 @@
 
                             <td>{{ $kilometro->entrada }} </td>
                             <td> {{ $kilometro->salida }}</td>
-                            <td> </td>
+                            <td> {{ $kilometro->conductor->NombreConductor }}</td>
                             <td> </td>
                             <td></td>
                             <td>

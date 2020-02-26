@@ -6,7 +6,7 @@ use App\kilometros;
 use App\Vehiculos;
 use App\Clientes;
 use App\Conductor;
-use Illuminate\Support\Facades\DB;
+
 
 use Illuminate\Http\Request;
 
@@ -25,11 +25,18 @@ class KilometrosController extends Controller
         //->join('clientes', 'clientes.id')
         //->join('conductores', 'conductores.id')
         //->get();
-        $datosKilometro['kilometros']=Kilometros::paginate(50);
+        $datosKilometro=Kilometros::paginate(50);
+        $datosKilometro->each(function($datosKilometro){
+            $datosKilometro->Vehiculos;
+            $datosKilometro->Clientes;
+            $datosKilometro->Conductor;
+
+        });
         //$datosVehiculos['vehiculos']=Vehiculos::paginate(50);
         //$datosClientes['clientes']=Clientes::paginate(50);
         
-        return view('kilometros.index', $datosKilometro);
+        return view('kilometros.index')
+        ->with('kilometros', $datosKilometro);
     }
 
     /**
