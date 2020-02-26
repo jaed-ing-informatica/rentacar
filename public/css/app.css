@@ -74,6 +74,9 @@ body {
     color: #212529;
     text-align: left;
     background-color: #f8fafc;
+    background-image: url("/img/fondo1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
