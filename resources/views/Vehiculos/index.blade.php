@@ -47,7 +47,8 @@
                            <button type="submit" onclick="return confirm('¿Desea Borrar?')" class="btn btn-danger">Borrar</button>
                     </form>-->
                         <!--<a href="{{ url('/vehiculos/'.$vehiculo->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
-                        <a href="{{ url('/clientes/create') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>
+                        <a href="{{ url('/clientes/') }}" class="btn btn-success btn-block">Entrega</a>
+                        <!--<a href="{{ url('/clientes/create') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
                         <a href="{{ url('/galerias') }}" class="btn btn-primary btn-block">Recepción</a>
                     </td>
 
@@ -190,8 +191,15 @@
                                             <div class="modal-footer">
                                                     <!--<button type="button" href="{{ url('clientes') }}" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>-->
                                                     <!--<button type="button" href="{{ url('clientes') }}" class="btn btn-primary">Siguiente</button>-->
-                                                    <div class="from-group">
-                                                        <button type="submit" class="btn btn-warning" value="{{ 'Siguiente' }}" data-toggle="modal" data-target="#exampleModal">
+                                                    <div class="col-md-6 col-center">
+                                                            <div class="from-group">
+                                                                <input type="submit" class="form-control btn btn-warning" value="Agregar">
+                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-center">
+                                                            <div class="from-group">
+                                                                <a class="btn btn-primary" href="{{ url('vehiculos') }}">Regresar</a>
+                                                            </div>
                                                     </div>
                                             </div><!--Fin modal-footer-->
                                             </form>

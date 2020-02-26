@@ -46,7 +46,7 @@
                         </form>-->
                         <!--<a href="{{ url('/clientes/'.$cliente->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
                         <!--<a href="{{ url('/conductores') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
-                        <a href="{{ url('/conductores/create') }}" class="btn btn-success btn-block">Seleccionar</a>
+                        <a href="{{ url('/conductores') }}" class="btn btn-success btn-block">Seleccionar</a>
                         <!--<a href="{{ url('/recepcion') }}" class="btn btn-primary btn-block">Recepcion</a>-->
                     </td>
 

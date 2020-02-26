@@ -20,16 +20,16 @@ class KilometrosController extends Controller
     public function index()
     {
         //
-        $datos = DB::table('kilometros')
-        ->join('vehiculos', 'vehiculos.id')
-        ->join('clientes', 'clientes.id')
-        ->join('conductores', 'conductores.id')
-        ->get();
-        //$datosKilometro['kilometros']=Kilometros::paginate(50);
+        //$datos = DB::table('kilometros')
+        //->join('vehiculos', 'vehiculos.id')
+        //->join('clientes', 'clientes.id')
+        //->join('conductores', 'conductores.id')
+        //->get();
+        $datosKilometro['kilometros']=Kilometros::paginate(50);
         //$datosVehiculos['vehiculos']=Vehiculos::paginate(50);
         //$datosClientes['clientes']=Clientes::paginate(50);
         
-        return view('kilometros.index', compact('$datos'));
+        return view('kilometros.index', $datosKilometro);
     }
 
     /**
