@@ -1,18 +1,15 @@
 
 
+<div class="container">
 
-<div class="col-center">
-    <div class="container-fluid text-left">
-        <div class="row mx-auto p-3">
-            <div class="col-md-8 col-md-offset-5">
                 <div class="card">
                     <div class="card-title">
-                        <div class="col-md-6 col-md-offset-5">
+                        <div class="col-md-12 col-md-offset-5">
                             <h3>{{ $Modo=='Crear' ? 'Agregar Cliente': 'Modificar cliente' }}</h3></div>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                            <div class="col-md-12 col-md-offset-5">
+                                <div class="col-md-12">
 
                                 <form action="{{ url('clientes') }}" class="form-horizontal" method="POST" enctype="multipart/form-data">
                                                 {{ csrf_field() }} 
@@ -69,7 +66,7 @@
         
                                                         <div class="from-group col-md-6">
                                                             
-                                                        <label for="FechaNacimientoCliente" class="control-label">{{ 'Fecha Nacimiento' }}</label>
+                                                                <label for="FechaNacimientoCliente" class="control-label">{{ 'Fecha Nacimiento' }}</label>
                                                                 <input type="text" class="form-control {{ $errors->has('FechaNacimientoCliente')?'is-invalid':'' }}" name="FechaNacimientoCliente" id="FechaNacimientoCliente" value="{{ isset($cliente->FechaNacimientoCliente)?$cliente->FechaNacimientoCliente:old('FechaNacimientoCliente') }}">
                                                                 {!! $errors->first('FechaNacimientoCliente','<div class="invalid-feedback">:message</div>') !!}
         
@@ -95,7 +92,7 @@
                                                                 {!! $errors->first('Foto','<div class="invalid-feedback">:message</div>') !!}
                                                         </div>
                                                         
-                                                            <div class="col-md-12 col-center"><br>
+                                                        <div class="col-md-12 col-center"><br>
                                                             <div class="row">
                                                                 <div class="col-md-6 col-center">
                                                                         <div class="from-group">
@@ -110,6 +107,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                     </div>
                                                 
                                                 
@@ -119,7 +117,6 @@
                                                 <!--Fin modal-footer-->
                                                 </form>
 
-</div>
 </div>
 </div>
 </div>

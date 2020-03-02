@@ -23,9 +23,18 @@ class KilometrosController extends Controller
 
         $data = DB::table('vehiculos')
         ->join('clientes','clientes.id', '=', 'vehiculos.id')
+        ->join('conductors','conductors.id', '=', 'vehiculos.id')
         //->join('conductors','conductors.id', '=', 'clientes.id')
         //->join('kilometros','entrada','salida')
-        ->select('vehiculos.TipoVehiculo','vehiculos.Marca','vehiculos.Modelo','vehiculos.Patente', 'clientes.NombreCliente', 'clientes.ApellidoPaterno', 'clientes.ApellidoMaterno', 'clientes.RutCliente')
+        ->select('vehiculos.TipoVehiculo',
+                    'vehiculos.Marca',
+                    'vehiculos.Modelo',
+                    'vehiculos.Patente', 
+                    'clientes.NombreCliente', 
+                    'clientes.ApellidoPaterno', 
+                    'clientes.ApellidoMaterno', 
+                    'clientes.RutCliente', 
+                    'conductors.NombreConductor')
         ->get();
         //return view('join_table', compact('data'));
         //

@@ -1,4 +1,4 @@
-@extends('layouts')
+@extends('layouts.admin')
 @section('content')
 <div class="container">
     @if(Session::has('Mensaje'))
@@ -35,7 +35,7 @@
                             <td></td>
                             <td>{{ $datas->TipoVehiculo  }}{{ $datas->Marca }} {{ $datas->Modelo }}  {{ $datas->Patente }}</td>
                             <td> {{ $datas->NombreCliente }} {{ $datas->ApellidoPaterno }} {{ $datas->ApellidoMaterno }}</td>
-                            <td></td>
+                            <td>{{ $datas->NombreConductor }}</td>
                             <td>
                                 <a href="{{ url('/kilometros') }}" class="btn btn-success btn-block">Entrega</a>
                                 <a href="{{ url('/kilometros') }}" class="btn btn-primary btn-block">Recepcion</a>

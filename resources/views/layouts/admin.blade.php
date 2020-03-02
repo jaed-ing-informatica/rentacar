@@ -20,13 +20,22 @@
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 
   </head>
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
 
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="{{ url('/') }}" class="logo">
+        <img src="/img/logo_rentacar.png" alt="RENTACAR" class="brand-image img-circle elevation-3"
+           style="text-align:left;
+            opacity: .8;
+             min-height:50px;
+              max-height:50px;
+               position: static;
+                margin: 5px;
+                left: 5px;
+                 padding-top: 0px;">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>RENT</b>A</span>
           <!-- logo for regular state and mobile devices -->
