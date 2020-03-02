@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 
   </head>
-  <body class="hold-transition skin-green sidebar-mini">
+  <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
 
       <header class="main-header">
@@ -36,10 +36,7 @@
                 margin: 5px;
                 left: 5px;
                  padding-top: 0px;">
-          <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>RENT</b>A</span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>RENTACAR</b></span>
+         
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -241,9 +238,9 @@
       <!--Fin-Contenido-->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
+          <b>Version</b> 1.0.0.0
         </div>
-        <strong>Copyright &copy; 2015-2020 <a href="www.incanatoit.com">RENTACAR</a>.</strong> All rights reserved.
+        <strong>Derechos de Copia &copy; 2020 <a href="www.incanatoit.com">RENTACAR</a>.</strong> Todos los derechos reservados.
       </footer>
 
       

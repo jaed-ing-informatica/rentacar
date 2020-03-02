@@ -4,7 +4,7 @@
 <div class="col-center">
     <div class="container-fluid text-left">
         <div class="row mx-auto p-3">
-            <div class="col-md-6 col-md-offset-5">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-title">
                         <div class="col-md-6 col-md-offset-5">

@@ -1,14 +1,29 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body text-info">
+            <h5 class="card-title">Info card title</h5>
+            <p class="card-text">ACA</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
     @if(Session::has('Mensaje'))
     <div class="alert alert-success" role="alert">
     {{
             Session::get('Mensaje')
     }}
     </div>
+    
     @endif
-    <a href="{{ url('kilometros/create') }}" class="btn btn-secondary">Agregar Kilometros</a>
+
+    
+    <a href="{{ url('/kilometros/create') }}" class="btn btn-success btn-block">Crear</a>
+    
     <br/>
         <table class="table table-light table-hover">
             <thead class="thead-light">
