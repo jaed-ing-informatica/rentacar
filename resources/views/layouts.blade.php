@@ -360,5 +360,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/dist/js/adminlte.min.js') }}"></script>
+
+<script src="{{ asset('/js/comunasyregiones.js') }}"></script>
 </body>
 </html>

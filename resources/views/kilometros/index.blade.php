@@ -23,34 +23,27 @@
                 </tr>
             </thead>
             <tbody>
-        
-                @foreach($kilometros as $kilometro)
-                  
-                        <tr>
+            
+                @foreach($data as $datas)
                             <td>{{ $loop->iteration }}</td>
-
-                            <td>{{ $kilometro->entrada }} </td>
-                            <td> {{ $kilometro->salida }}</td>
-                            <td> {{ $kilometro->conductor->NombreConductor }}</td>
-                            <td> </td>
+                            
+                            <tr>    
+                            
+                            <td></td>
+                            <td></td>
+                            
+                            <td></td>
+                            <td>{{ $datas->TipoVehiculo  }}{{ $datas->Marca }} {{ $datas->Modelo }}  {{ $datas->Patente }}</td>
+                            <td> {{ $datas->NombreCliente }} {{ $datas->ApellidoPaterno }} {{ $datas->ApellidoMaterno }}</td>
                             <td></td>
                             <td>
                                 <a href="{{ url('/kilometros') }}" class="btn btn-success btn-block">Entrega</a>
                                 <a href="{{ url('/kilometros') }}" class="btn btn-primary btn-block">Recepcion</a>
                             </td>
                         </tr>
-          
-                
-
-            @endforeach
-
+                @endforeach                  
             </tbody>
-
         </table>
-
-{{ $kilometros->links() }}
-
-
 
 
 @endsection

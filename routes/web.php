@@ -24,6 +24,8 @@ Route::resource('/conductores','ConductorController')->middleware('auth');
 
 Route::resource('/kilometros','KilometrosController')->middleware('auth');
 
+Route::get('join_table', 'JoinTableController@index');
+
 
 
 

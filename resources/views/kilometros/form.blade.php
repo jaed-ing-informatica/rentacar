@@ -13,8 +13,11 @@
                         <div class="card-body">
                             <div class="row">
                                     <div class="col-md-12 col-md-offset-5">
-
-
+                                    <div class="from-group">
+                                            <label for="Patente" class="control-label {{ $errors->has('Patente')?'is-invalid':'' }}">{{ 'Patente' }}</label>
+                                            <input type="text" class="form-control"  name="Patente" id="Patente" value="{{ isset($kilometro->Patente)?$kilometro->Patente:old('Patente') }}">
+                                            {!! $errors->first('Patente','<div class="invalid-feedback">:message</div>') !!}
+                                        </div>
                                         <div class="from-group">
                                             <label for="Entrada" class="control-label {{ $errors->has('Entrada')?'is-invalid':'' }}">{{ 'Entrada' }}</label>
                                             <input type="text" class="form-control" name="Entrada" id="Entrada" value="{{ isset($kilometro->Entrada)?$kilometro->Entrada:old('Entrada') }}">

@@ -7,6 +7,7 @@ use App\Vehiculos;
 use App\Clientes;
 use App\Conductor;
 
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -19,24 +20,30 @@ class KilometrosController extends Controller
      */
     public function index()
     {
+
+        $data = DB::table('vehiculos')
+        ->join('clientes','clientes.id', '=', 'vehiculos.id')
+        //->join('conductors','conductors.id', '=', 'clientes.id')
+        //->join('kilometros','entrada','salida')
+        ->select('vehiculos.TipoVehiculo','vehiculos.Marca','vehiculos.Modelo','vehiculos.Patente', 'clientes.NombreCliente', 'clientes.ApellidoPaterno', 'clientes.ApellidoMaterno', 'clientes.RutCliente')
+        ->get();
+        //return view('join_table', compact('data'));
         //
         //$datos = DB::table('kilometros')
         //->join('vehiculos', 'vehiculos.id')
         //->join('clientes', 'clientes.id')
         //->join('conductores', 'conductores.id')
         //->get();
-        $datosKilometro=Kilometros::paginate(50);
-        $datosKilometro->each(function($datosKilometro){
-            $datosKilometro->Vehiculos;
-            $datosKilometro->Clientes;
-            $datosKilometro->Conductor;
-
-        });
+        //$data=Vehiculos::paginate(50);
+        //$datosVehiculos=Vehiculos::paginate(50);
+        //$datosKilometro=vehiculos::all();
+        //$datosKilometro=Clientes::all();
+        //$datosKilometro=Conductor::all();
+        
         //$datosVehiculos['vehiculos']=Vehiculos::paginate(50);
         //$datosClientes['clientes']=Clientes::paginate(50);
         
-        return view('kilometros.index')
-        ->with('kilometros', $datosKilometro);
+        return view('kilometros.index', compact('data'));
     }
 
     /**
@@ -79,6 +86,7 @@ class KilometrosController extends Controller
     $datosKilometro=request()->except('_token');
 
     Kilometros::Insert($datosKilometro);
+
     return redirect('kilometros')->with('Mensaje', 'Kilometraje agregado al inventario');
         
     }

@@ -53,59 +53,60 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-md-offset-5">
-                                        <div class="from-group">
+                                            <div class="from-group">
                                                                 <label for="Año" class="control-label">{{ 'Año' }}</label>
                                                                 <input type="text" class="form-control {{ $errors->has('Año')?'is-invalid':'' }}" name="Año" id="Año" value="{{ isset($cliente->Año)?$cliente->Año:old('Año') }}">
                                                                 {!! $errors->first('Año','<div class="invalid-feedback">:message</div>') !!}
-                                        </div>
+                                            </div>
 
-                                        <div class="from-group">
+                                            <div class="from-group">
                                                                 <label for="Color" class="control-label">{{ 'Color' }}</label>
                                                                 <input type="text" class="form-control {{ $errors->has('Color')?'is-invalid':'' }}" name="Color" id="Color" value="{{ isset($cliente->Color)?$cliente->Color:old('Color') }}">
                                                                 {!! $errors->first('Color','<div class="invalid-feedback">:message</div>') !!}
-                                        </div>
+                                            </div>
 
-                                    <div class="from-group">
+                                            <div class="from-group">
                                                                 <label for="NumeroChasis" class="control-label">{{ 'Numero Chasis' }}</label>
                                                                 <input type="text" class="form-control {{ $errors->has('NumeroChasis')?'is-invalid':'' }}" name="NumeroChasis" id="NumeroChasis" value="{{ isset($cliente->NumeroChasis)?$cliente->NumeroChasis:old('NumeroChasis') }}">
                                                                 {!! $errors->first('NumeroChasis','<div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                            </div>
 
-                                    <div class="from-group">
+                                            <div class="from-group">
                                                                 <label for="Combustible" class="control-label">{{ 'Combustible' }}</label>
                                                                 <input type="text" class="form-control {{ $errors->has('Combustible')?'is-invalid':'' }}" name="Combustible" id="Combustible" value="{{ isset($cliente->Combustible)?$cliente->Combustible:old('Combustible') }}">
                                                                 {!! $errors->first('Combustible','<div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                            </div>
 
-                                    <input id="Estado" name="Estado" type="hidden" value="Disponible">
+                                            <input id="Estado" name="Estado" type="hidden" value="Disponible">
 
-                                    <div class="from-group">
-                                        <label class="control-label {{ $errors->has('Foto')?'is-invalid':'' }}" for="Foto">{{ 'Foto' }}</label>
-                                        @if(isset($vehiculo->Foto))
-                                        <br>
-                                        <img class="img-thumbnail img-fluid" src="{{ asset('storage'. '/' . $vehiculo->Foto) }}" alt="" width="300">
-                                        </br>
-                                        @endif
-                                        <input type="file" class="form-control {{ $errors->has('Foto')?'is-invalid':'' }}" name="Foto" id="Foto" >
-                                        {!! $errors->first('Foto','</div class="invalid-feedback">:message</div>') !!}
-                                    </div>
+                                            <div class="from-group">
+                                                <label class="control-label {{ $errors->has('Foto')?'is-invalid':'' }}" for="Foto">{{ 'Foto' }}</label>
+                                                @if(isset($vehiculo->Foto))
+                                                <br>
+                                                <img class="img-thumbnail img-fluid" src="{{ asset('storage'. '/' . $vehiculo->Foto) }}" alt="" width="300">
+                                                </br>
+                                                @endif
+                                                <input type="file" class="form-control {{ $errors->has('Foto')?'is-invalid':'' }}" name="Foto" id="Foto" >
+                                                {!! $errors->first('Foto','</div class="invalid-feedback">:message</div>') !!}
+                                            </div>
 
-                                </div>
-                                    <div class="col-md-6 col-center">
-                                    <div class="from-group">
-                                    <input type="submit" class="form-control btn btn-warning" value="{{ $Modo=='Crear' ? 'Agregar':'Modificar' }}">
-                                    </div>
-                                    </div>
-                                    <div class="col-md-6 col-center">
-                                    <div class="from-group">
-                                    <a class="btn btn-primary btn-block" href="{{ url('vehiculos') }}">Regresar a Vehiculos</a>
-                                    </div>
-                                    </div>
+                                            <div class="col-md-6 col-center">
+                                                <div class="from-group">
+                                                    <input type="submit" class="form-control btn btn-warning" value="{{ $Modo=='Crear' ? 'Agregar':'Modificar' }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-center">
+                                                <div class="from-group">
+                                                    <a class="btn btn-primary btn-block" href="{{ url('vehiculos') }}">Regresar a Vehiculos</a>
+                                                </div>
+                                            </div>
 
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
