@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clientes;
+use App\Kilometros;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -80,6 +81,13 @@ class ClientesController extends Controller
     public function show(Clientes $clientes)
     {
         //
+    }
+    public function factura($id)
+    {
+        //
+        //Kilometros::Insert('insert into Kilometros (id_vehiculo) values ($id)');
+        
+        return redirect('clientes');
     }
 
     /**

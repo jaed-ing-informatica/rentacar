@@ -14,17 +14,25 @@
 Route::get('/', function () {
     return view('auth.login');
 });
-Auth::routes(['register'=>false, 'reset'=>false]);
+Auth::routes(['register'=>true, 'reset'=>false]);
 
-Route::resource('/vehiculos','VehiculosController')->middleware('auth');
+Route::resource('/vehiculos','VehiculosController');
 
-Route::resource('/clientes','ClientesController')->middleware('auth');
+Route::resource('/clientes','ClientesController');
 
-Route::resource('/conductores','ConductorController')->middleware('auth');
+Route::get('/clientes/create/{id}','ClientesController@factura');
 
-Route::resource('/kilometros','KilometrosController')->middleware('auth');
+Route::resource('/conductores','ConductorController');
+
+Route::resource('/kilometros','KilometrosController');
 
 Route::get('join_table', 'JoinTableController@index');
+
+Route::resource('/facturas', 'FacturaController');
+
+Route::resource('/relbase', 'RelbaseController');
+
+
 
 
 

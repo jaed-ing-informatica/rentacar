@@ -18,16 +18,25 @@
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
     <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+    <style>
+      .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    </style>
+    
 
   </head>
   <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
 
-      <header class="main-header">
+      <header class="main-header left">
 
         <!-- Logo -->
-        <a href="{{ url('/') }}" class="logo">
-        <img src="/img/logo_rentacar.png" alt="RENTACAR" class="brand-image img-circle elevation-3"
+        <a href="{{ url('/') }}" class="navbar-brand">
+        
+        <img src="{{URL::asset('/img/logo_rentacar.png')}}" alt="profile Pic" height="50" width="50">
+        <!--<img src="/img/logo_rentacar.png" alt="RENTACAR" class="brand-image img-circle elevation-3"
            style="text-align:left;
             opacity: .8;
              min-height:50px;
@@ -35,7 +44,7 @@
                position: static;
                 margin: 5px;
                 left: 5px;
-                 padding-top: 0px;">
+                 padding-top: 0px;">-->
          
         </a>
 
@@ -54,23 +63,31 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <small class="bg-red">Online</small>
-                  <span class="hidden-xs">Javier Elgueta D</span>
+                  <span class="hidden-xs">{{ Auth::user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    
+                    <p><h3>RENTACAR</h3></p>
                     <p>
-                      www.rentacarmaule.com - Desarrollando Software
-                      <small>jaed.ing.informatica@gmail.com</small>
+                      www.rentacarmaule.com 
+                      <small>{{ Auth::user()->email }}</small>
                     </p>
                   </li>
                   
                   <!-- Menu Footer-->
                   <li class="user-footer">
-                    
+
+                   
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Cerrar</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Cerrar Sesión') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                     </div>
                   </li>
                 </ul>
@@ -98,7 +115,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-              <li><a href="vehiculos"><i class="fa fa-car"></i> Lista</a></li>
+              <li><a href="{{ url('vehiculos') }}"><i class="fa fa-car"></i> Lista</a></li>
               </ul>
             </li>
             <!-- menu Clientes -->
@@ -109,7 +126,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-              <li><a href="clientes"><i class="fa fa-child"></i> Lista</a></li>
+              <li><a href="{{ url('clientes') }}"><i class="fa fa-child"></i> Lista</a></li>
            
               </ul>
             </li>
@@ -121,7 +138,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-              <li><a href="conductores"><i class="fa fa-street-view"></i> Lista</a></li>
+              <li><a href="{{ url('conductores') }}"><i class="fa fa-street-view"></i> Lista</a></li>
               </ul>
             </li>
             <!-- menu kilometros -->
@@ -132,7 +149,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-              <li><a href="kilometros"><i class="fa fa-circle-o"></i> Lista</a></li>
+              <li><a href="{{ url('kilometros') }}"><i class="fa fa-circle-o"></i> Lista</a></li>
                
               </ul>
             </li>
@@ -204,6 +221,7 @@
         <!-- Main content -->
         <section class="content">
           
+          
           <div class="row">
             <div class="col-md-12">
               <div class="box">
@@ -240,7 +258,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 1.0.0.0
         </div>
-        <strong>Derechos de Copia &copy; 2020 <a href="www.incanatoit.com">RENTACAR</a>.</strong> Todos los derechos reservados.
+        <strong>Derechos de Copia &copy; 2020 <a href="www.rentacarmaule.com">RENTACAR</a>.</strong> Todos los derechos reservados.
       </footer>
 
       
@@ -250,6 +268,8 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('js/app.min.js')}}"></script>
+
+    <script src="{{asset('js/vistaPrevia.js')}}"></script>
     <script src="{{ asset('/js/comunasyregiones.js') }}"></script>
     
   </body>

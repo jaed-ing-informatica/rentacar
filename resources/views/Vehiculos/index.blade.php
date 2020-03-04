@@ -8,7 +8,13 @@
     }}
     </div>
     @endif
-    <a href="{{ url('vehiculos/create') }}" class="btn btn-secondary">Agregar Vehículo</a>
+
+    
+    
+    
+        
+    
+    
     <br/>
         <table class="table table-light table-hover">
             <thead class="thead-light">
@@ -47,13 +53,67 @@
                            <button type="submit" onclick="return confirm('¿Desea Borrar?')" class="btn btn-danger">Borrar</button>
                     </form>-->
                         <!--<a href="{{ url('/vehiculos/'.$vehiculo->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
-                        <a href="{{ url('/clientes/') }}" class="btn btn-warning btn-block">Entrega</a>
+                        
+                        
+                        <a href="{{ url('/clientes/create/' . $vehiculo->id) }}" class="btn btn-warning btn-block">Seleccionar</a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                        Seleccionar</button>
+                        
+                        
+                        
                         <!--<a href="{{ url('/clientes/create') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
                         <a href="{{ url('/galerias') }}" class="btn btn-info btn-block">Recepción</a>
                     </td>
 
                 </tr>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Seleccione tipo</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <select class="custom-select">
+                                    <option selected>Tipo de empresa</option>
+                                    <option id="empresa" name="empresa" value="1">Empresa</option>
+                                    <option id="empresaReemplazo" name="empresaReemplazo" value="2">Empresa Reemplazo</option>
+                                    <option id="persona" name="persona" value="3">Persona Natural</option>
+                                </select>                                                                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal2">Continuar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Seleccione tipo</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <select class="custom-select">
+                                   
+                                    </select>                                                                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal2">Continuar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             @endforeach
 
             </tbody>
@@ -64,7 +124,7 @@
 
 
 <!-- Modal -->
-                            
+            <!--                
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 
                                 <div class="modal-dialog" role="document" >
@@ -189,8 +249,8 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                    <!--<button type="button" href="{{ url('clientes') }}" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>-->
-                                                    <!--<button type="button" href="{{ url('clientes') }}" class="btn btn-primary">Siguiente</button>-->
+                                                   <button type="button" href="{{ url('clientes') }}" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                   <button type="button" href="{{ url('clientes') }}" class="btn btn-primary">Siguiente</button>
                                                     <div class="col-md-6 col-center">
                                                             <div class="from-group">
                                                                 <input type="submit" class="form-control btn btn-warning" value="Agregar">
@@ -201,11 +261,11 @@
                                                                 <a class="btn btn-primary" href="{{ url('vehiculos') }}">Regresar</a>
                                                             </div>
                                                     </div>
-                                            </div><!--Fin modal-footer-->
-                                            </form>
-                            </div><!--fin moral content--> 
-                        </div> <!--Fin moral dialog-->
-                    </div><!--Fin moral fade-->
+                                            </div>Fin modal-footer
+                                            </form>-->
+                            </div><!--fin modal content--> 
+                        </div> <!--Fin modal dialog-->
+                    </div><!--Fin modal fade-->
 </div>
 
 @endsection
