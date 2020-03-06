@@ -56,48 +56,49 @@
                         
                         
                         <a href="{{ url('/clientes/create/' . $vehiculo->id) }}" class="btn btn-warning btn-block">Seleccionar</a>
+                        
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                         Seleccionar</button>
                         
                         
                         
                         <!--<a href="{{ url('/clientes/create') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
-                        <a href="{{ url('/galerias') }}" class="btn btn-info btn-block">Recepción</a>
+                        <a href="{{ url('/recepcionVehiculo') }}" class="btn btn-info btn-block">Recepción</a>
                     </td>
 
                 </tr>
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Seleccione tipo</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                <select class="custom-select">
-                                    <option selected>Tipo de empresa</option>
-                                    <option id="empresa" name="empresa" value="1">Empresa</option>
-                                    <option id="empresaReemplazo" name="empresaReemplazo" value="2">Empresa Reemplazo</option>
-                                    <option id="persona" name="persona" value="3">Persona Natural</option>
-                                </select>                                                                                   
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal2">Continuar</button>
-                                </div>
-                            </div>
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Seleccione tipo</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        <select class="custom-select">
+                                            <option selected>Tipo de empresa</option>
+                                            <option id="empresa" name="empresa" value="1">Empresa</option>
+                                            <option id="empresaReemplazo" name="empresaReemplazo" value="2">Empresa Reemplazo</option>
+                                            <option id="persona" name="persona" value="3">Persona Natural</option>
+                                        </select>                                                                                   
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <a href="{{ url('/clientes/create/' . $vehiculo->id) }}" class="btn btn-warning btn-block">Continuar</a>
+                                        </div>
+                                    </div>
                         </div>
                     </div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <!-- Modal 
+                    <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="example2ModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Seleccione tipo</h5>
+                                    <h5 class="modal-title" id="example2ModalLongTitle">Seleccione tipo</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -113,7 +114,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
             @endforeach
 
             </tbody>

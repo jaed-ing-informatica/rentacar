@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clientes;
+use App\Vehiculos;
 use App\Kilometros;
 use Illuminate\Http\Request;
 
@@ -82,13 +83,13 @@ class ClientesController extends Controller
     {
         //
     }
-    public function factura($id)
-    {
-        //
+    //public function Contrato($id)
+    //{
+      //  $datosVehiculo = request();
         //Kilometros::Insert('insert into Kilometros (id_vehiculo) values ($id)');
-        
-        return redirect('clientes');
-    }
+       // Vehiculos::Insert();
+        //return redirect('clientes');
+    //}
 
     /**
      * Show the form for editing the specified resource.

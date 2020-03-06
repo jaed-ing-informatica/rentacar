@@ -8,7 +8,11 @@
     }}
     </div>
     @endif
-    <a href="{{ url('clientes/create') }}" class="btn btn-secondary">Agregar Cliente</a>
+    
+
+
+    <h2><div class="alert alert-success" role="alert">Vehículo : </h2>
+    <a href="{{ url('clientes/create') }}" class="btn btn-primary btn-block">Crear Nuevo Cliente</a>
     <br/>
         <table class="table table-light table-hover">
             <thead class="thead-light">
@@ -46,7 +50,7 @@
                         </form>-->
                         <!--<a href="{{ url('/clientes/'.$cliente->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
                         <!--<a href="{{ url('/conductores') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
-                        <a href="{{ url('/conductores') }}" class="btn btn-success btn-block">Seleccionar</a>
+                        <a href="{{ url('/conductores') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Seleccionar</a>
                         <!--<a href="{{ url('/recepcion') }}" class="btn btn-primary btn-block">Recepcion</a>-->
                     </td>
 

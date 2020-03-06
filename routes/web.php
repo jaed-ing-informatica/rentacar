@@ -20,7 +20,7 @@ Route::resource('/vehiculos','VehiculosController');
 
 Route::resource('/clientes','ClientesController');
 
-Route::get('/clientes/create/{id}','ClientesController@factura');
+Route::get('/clientes/{id}/contrato','ClientesController@Contrato');
 
 Route::resource('/conductores','ConductorController');
 

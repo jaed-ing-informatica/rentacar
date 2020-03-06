@@ -1,0 +1,35 @@
+<!-- Código de instalación Cliengo para http://www.firmaabogadoschile.cl --> <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/5b8009e3e4b0a6dcf9a73e68/5b8009e4e4b0a6dcf9a73e6b.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
+
+
+<!-- Código de instalación Cliengo para http://www.rentacarmaule.cl -->
+  <script type="text/javascript">(function () {
+  var ldk = document.createElement('script');
+  ldk.type = 'text/javascript';
+  ldk.async = true;
+  ldk.src = 'https://s.cliengo.com/weboptimizer/5b801625e4b03e92528c950d/5b801627e4b03e92528c9510.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ldk, s);
+})();</script>
+
+
+<!-- Código de instalación Cliengo para http://www.firmacorretajeschile.cl -->
+  <script type="text/javascript">(function () {
+  var ldk = document.createElement('script');
+  ldk.type = 'text/javascript';
+  ldk.async = true;
+  ldk.src = 'https://s.cliengo.com/weboptimizer/5b801989e4b0a6dcf9a73fc0/5b80198ae4b0a6dcf9a73fc5.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ldk, s);
+})();</script>
+            
+
+<!-- Código de instalación Cliengo para http://www.hostalplazamaule.cl -->
+  <script type="text/javascript">(function () {
+  var ldk = document.createElement('script');
+  ldk.type = 'text/javascript';
+  ldk.async = true;
+  ldk.src = 'https://s.cliengo.com/weboptimizer/5b802318e4b09b098f1f0bf2/5b80231ae4b09b098f1f0bf6.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ldk, s);
+})();</script>
+            
