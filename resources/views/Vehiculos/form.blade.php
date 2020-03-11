@@ -98,9 +98,9 @@
 
                                                                 <label for="Modelo" class="control-label">{{ 'Modelo' }}</label>
                                                                 <select id="id_modelo" name="id_modelo" class="form-control">
-                                                                    <option>------Seleccionar Marca------</option>
+                                                                    <option>------Seleccionar Modelo------</option>
                                                                     @foreach($datosmodelos as $modelo)
-                                                                    <option value="{{ $marca['id_modelo'] }}">{{ $marca['NombreModelo'] }}</option>
+                                                                    <option value="{{ $modelo['id_modelo'] }}">{{ $modelo['NombreModelo'] }}</option>
                                                                     @endforeach
                                                                 </select>
                                         </div>
