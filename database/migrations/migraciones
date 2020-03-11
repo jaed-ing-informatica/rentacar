@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -13,32 +14,34 @@ class CreateContratosTable extends Migration
      */
     public function up()
     {
-        /* --------------------------1---------------------------- 
+        /* --------------------------1---------------------------- */
         Schema::create('Propietarios', function (Blueprint $table) {
             $table->bigIncrements('id_propietario')->unique();
-            
+            $table->string('RutPropietario')->unique();
+            $table->string('NombrePropietario')->nullable();
+            $table->string('DireccionPropietario')->nullable();
             $table->timestamps();
-        });*/
+        });
 
                         /* --------------------------3---------------------------- */
 
         Schema::create('Marcas', function (Blueprint $table) {
             $table->bigIncrements('id_marca')->unique();
-            $table->string('NombreMarca')->nullable();
+            $table->string('NombreMarca');
             $table->timestamps();
         });
 
                 /* --------------------------4---------------------------- */
         Schema::create('Tracciones', function (Blueprint $table) {
             $table->bigIncrements('id_traccion')->unique();
-            $table->string('NombreTraccion')->nullable();
+            $table->string('NombreTraccion');
             $table->timestamps();
         });
 
                 /* --------------------------5---------------------------- */
         Schema::create('Combustibles', function (Blueprint $table) {
             $table->bigIncrements('id_combustible')->unique();
-            $table->string('NombreCombustible')->nullable();
+            $table->string('NombreCombustible');
             $table->timestamps();
         });
 
@@ -46,14 +49,14 @@ class CreateContratosTable extends Migration
 
         Schema::create('Ciudades', function (Blueprint $table) {
             $table->bigIncrements('id_ciudad')->unique();
-            $table->string('NombreCudad')->nullable();
+            $table->string('NombreCudad');
             $table->timestamps();
         });
 
         /* --------------------------13---------------------------- */
         Schema::create('TiposClientes', function (Blueprint $table) {
             $table->bigIncrements('id_tipoCliente')->unique();
-            $table->string('NombreTipoCliente')->nullable();
+            $table->string('NombreTipoCliente');
             $table->string('CodigoTipoCliente')->nullable();
             $table->timestamps();
         });
@@ -61,7 +64,7 @@ class CreateContratosTable extends Migration
         /* --------------------------8---------------------------- */
         Schema::create('Equipamientos', function (Blueprint $table) {
             $table->bigIncrements('id_equipamiento')->unique();
-            $table->string('NombreEquipamiento')->nullable();
+            $table->string('NombreEquipamiento');
             $table->string('PrecioEquipamientoDiario')->nullable();
             $table->string('PrecioEquipamientoSuperior')->nullable();
             $table->timestamps();
@@ -71,24 +74,24 @@ class CreateContratosTable extends Migration
 
           Schema::create('MediosPagos', function (Blueprint $table) {
             $table->bigIncrements('id_medioPago')->unique();
-            $table->string('NombreMedioPago')->unique()->nullable();
+            $table->string('NombreMedioPago')->unique();
             $table->timestamps();
         });
         
         /* --------------------------2---------------------------- */
         Schema::create('Modelos', function (Blueprint $table) {
             $table->bigIncrements('id_modelo')->unique();
-            $table->string('NombreModelo')->unique()->nullable();
+            $table->string('NombreModelo')->unique();
 
-            $table->unsignedBigInteger('id_marca')->unsigned()->nullable();
-           // $table->unsignedBigInteger('id_traccion')->nullable();
-           // $table->unsignedBigInteger('id_combustible')->nullable();
-          //  $table->unsignedBigInteger('id_propietario')->nullable();
+            $table->unsignedBigInteger('id_marca');
+            $table->unsignedBigInteger('id_traccion');
+            $table->unsignedBigInteger('id_combustible');
+            $table->unsignedBigInteger('id_propietario');
 
             $table->foreign('id_marca')->references('id_marca')->on('marcas');
-           // $table->foreign('id_traccion')->references('id_traccion')->on('Tracciones');
-           // $table->foreign('id_combustible')->references('id_combustible')->on('Combustibles');
-         //   $table->foreign('id_propietario')->references('id_propietario')->on('Propietarios');
+            $table->foreign('id_traccion')->references('id_traccion')->on('Tracciones');
+            $table->foreign('id_combustible')->references('id_combustible')->on('Combustibles');
+            $table->foreign('id_propietario')->references('id_propietario')->on('Propietarios');
             
             $table->timestamps();
         });
@@ -96,23 +99,25 @@ class CreateContratosTable extends Migration
 
                 /* --------------------------6---------------------------- */
         
-                Schema::create('Tipos', function (Blueprint $table) {
-                    $table->bigIncrements('id_tipo')->unique();
-                    $table->string('Tipo')->unique()->nullable();
-                    
-                   
+                Schema::create('TiposVehiculos', function (Blueprint $table) {
+                    $table->bigIncrements('id_tipoVehiculo')->unique();
+                    $table->string('TipoVehiculo')->unique();
+                    $table->string('Descripcion')->nullable();
+                    $table->string('NumeroPuertas')->nullable();
+                    $table->string('NumeroAsientos')->nullable();
+                    $table->string('CapacidadMaleta')->nullable();
 
                     $table->timestamps();
         
-                   // $table->unsignedBigInteger('id_combustible')->nullable();
-                    //$table->unsignedBigInteger('id_traccion')->nullable();
-//                    $table->unsignedBigInteger('id_marca')->nullable();
-  //                  $table->unsignedBigInteger('id_modelo')->nullable();
+                    $table->unsignedBigInteger('id_combustible');
+                    $table->unsignedBigInteger('id_traccion');
+                    $table->unsignedBigInteger('id_marca');
+                    $table->unsignedBigInteger('id_modelo');
         
-    //                $table->foreign('id_combustible')->references('id_combustible')->on('Combustibles');
-      //              $table->foreign('id_traccion')->references('id_traccion')->on('Tracciones');
-        //            $table->foreign('id_marca')->references('id_marca')->on('Marcas');
-          //          $table->foreign('id_modelo')->references('id_modelo')->on('Modelos');
+                    $table->foreign('id_combustible')->references('id_combustible')->on('Combustibles');
+                    $table->foreign('id_traccion')->references('id_traccion')->on('Tracciones');
+                    $table->foreign('id_marca')->references('id_marca')->on('Marcas');
+                    $table->foreign('id_modelo')->references('id_modelo')->on('Modelos');
                     
                 });
 
@@ -125,56 +130,10 @@ class CreateContratosTable extends Migration
             $table->string('telefonoCelular')->nullable();
             $table->string('email')->unique();
             
-            $table->unsignedBigInteger('id_ciudad')->nullable();
+            $table->unsignedBigInteger('id_ciudad');
             $table->foreign('id_ciudad')->references('id_ciudad')->on('Ciudades');
             $table->timestamps();
         });
-
-                /* --------------------------7---------------------------- */
-        
-        
-                Schema::create('Vehiculos', function (Blueprint $table) {
-                    $table->bigIncrements('id_vehiculo')->unique();
-                    $table->string('Patente')->unique()->nullable();
-                    $table->string('PrecioDiarioRenta')->nullable();
-                    $table->string('PrecioMensualRenta')->nullable();
-                    $table->string('PrecioSemanalRenta')->nullable();
-                    $table->string('PrecioQuincenalRenta')->nullable();
-        
-                    $table->string('NumeroChasis')->nullable();
-                    $table->string('Año')->nullable();
-                    $table->string('Color')->nullable();
-                    $table->text('Descripcion')->nullable();
-                    $table->string('Foto')->nullable();
-                    $table->string('Estado')->nullable();
-
-                    $table->string('NumeroPuertas')->nullable();
-                    $table->string('NumeroAsientos')->nullable();
-                    $table->string('CapacidadMaleta')->nullable();
-
-                    $table->string('RutPropietario')->unique()->nullable();
-                    $table->string('NombrePropietario')->nullable();
-                    $table->string('DireccionPropietario')->nullable();
-                    
-
-                    $table->timestamps();
-                    $table->unsignedBigInteger('id_combustible')->nullable();
-                    $table->unsignedBigInteger('id_tipo')->nullable();
-                    $table->unsignedBigInteger('id_oficina')->nullable();
-                //    $table->unsignedBigInteger('id_km')->nullable();
-                //    $table->unsignedBigInteger('id_propietario')->nullable();
-                    
-                    $table->foreign('id_combustible')->references('id_combustible')->on('Combustibles');
-                    $table->foreign('id_tipo')->references('id_tipo')->on('Tipos');
-                    $table->foreign('id_oficina')->references('id_oficina')->on('oficinas');
-                   // $table->foreign('id_km')->references('id_km')->on('Kilometros');
-                   // $table->foreign('id_propietario')->references('id_propietario')->on('Propietarios');
-                    
-                    
-                    
-                });
-        
-        
 /* --------------------------10---------------------------- */
 
 Schema::create('Kilometros', function (Blueprint $table) {
@@ -186,10 +145,49 @@ Schema::create('Kilometros', function (Blueprint $table) {
     
     $table->timestamps();
 
-    $table->unsignedBigInteger('id_Vehiculo')->nullable();
-    $table->foreign('id_Vehiculo')->references('id_Vehiculo')->on('Vehiculos');
+    $table->unsignedBigInteger('id_tipoVehiculo');
+    $table->foreign('id_tipoVehiculo')->references('id_tipoVehiculo')->on('tiposVehiculos');
    
 });
+                /* --------------------------7---------------------------- */
+        
+        
+                Schema::create('Vehiculos', function (Blueprint $table) {
+                    $table->bigIncrements('id_vehiculo')->unique();
+                    $table->string('Patente')->unique();
+                    $table->string('PrecioDiarioRenta');
+                    $table->string('PrecioMensualRenta');
+                    $table->string('PrecioSemanalRenta');
+                    $table->string('PrecioQuincenalRenta');
+        
+                    $table->string('NumeroChasis')->nullable();
+                    $table->string('Año');
+                    $table->string('Color');
+                    $table->text('Descripcion')->nullable();
+                    $table->string('Foto')->nullable();
+                    $table->string('Estado')->nullable();
+
+                    $table->timestamps();
+        
+                    
+                    $table->unsignedBigInteger('id_tipoVehiculo');
+                    $table->unsignedBigInteger('id_oficina');
+                    $table->unsignedBigInteger('id_km');
+                    $table->unsignedBigInteger('id_propietario');
+                    
+
+
+                    $table->foreign('id_tipoVehiculo')->references('id_tipoVehiculo')->on('TiposVehiculos');
+                    $table->foreign('id_oficina')->references('id_oficina')->on('oficinas');
+                    $table->foreign('id_km')->references('id_km')->on('Kilometros');
+                    $table->foreign('id_propietario')->references('id_propietario')->on('Modelos');
+                    
+                    
+                    
+                });
+        
+        
+
        
 
         
@@ -198,13 +196,13 @@ Schema::create('Kilometros', function (Blueprint $table) {
         Schema::create('Mantenciones', function (Blueprint $table) {
             $table->bigIncrements('id_mantencion');
             $table->string('Descripcion')->nullable();
-            $table->string('FechaMantencionInicio')->nullable();
+            $table->string('FechaMantencionInicio');
             $table->string('FechaMantencionFin')->nullable();
             $table->string('ValorRepuesto')->nullable();
             $table->string('ValorManoObra')->nullable();
             $table->string('ValorTotal')->nullable();
             $table->timestamps();
-            $table->unsignedBigInteger('id_vehiculo')->nullable();
+            $table->unsignedBigInteger('id_vehiculo');
             $table->foreign('id_vehiculo')->references('id_vehiculo')->on('Vehiculos');
            
         });
@@ -215,22 +213,22 @@ Schema::create('Kilometros', function (Blueprint $table) {
       
         Schema::create('Clientes', function (Blueprint $table) {
             $table->bigIncrements('id_cliente');
-            $table->string('RutCliente')->unique()->nullable();
-            $table->string('NombreCliente')->nullable();
-            $table->string('ApellidoPaterno')->nullable();
-            $table->string('ApellidoMaterno')->nullable();
-            $table->string('DireccionCliente')->nullable();
+            $table->string('RutCliente')->unique();
+            $table->string('NombreCliente');
+            $table->string('ApellidoPaterno');
+            $table->string('ApellidoMaterno');
+            $table->string('DireccionCliente');
             $table->string('DireccionComercial')->nullable();
             $table->string('CiudadComercial')->nullable();
-            $table->string('CiudadCliente')->nullable();
+            $table->string('CiudadCliente');
             $table->string('FechaNacimientoCliente')->nullable();
-            $table->string('TelefonoCliente')->unique()->nullable();
-            $table->string('CorreoCliente')->unique()->nullable();
+            $table->string('TelefonoCliente')->unique();
+            $table->string('CorreoCliente')->unique();
             $table->string('Foto')->nullable();
 
-            $table->unsignedBigInteger('id_medioPago')->nullable();
-            $table->unsignedBigInteger('id_tipoCliente')->nullable();
-            $table->unsignedBigInteger('id_ciudad')->nullable();
+            $table->unsignedBigInteger('id_medioPago');
+            $table->unsignedBigInteger('id_tipoCliente');
+            $table->unsignedBigInteger('id_ciudad');
             
             $table->foreign('id_medioPago')->references('id_medioPago')->on('MediosPagos');
             $table->foreign('id_tipoCliente')->references('id_tipoCliente')->on('TiposClientes');
@@ -245,17 +243,17 @@ Schema::create('Kilometros', function (Blueprint $table) {
 Schema::create('Arriendos', function (Blueprint $table) {
     $table->bigIncrements('id_arriendo');
     
-    $table->integer('CantidadVehiculos')->nullable();
-    $table->string('PrecioNeto')->nullable();
-    $table->string('PrecioTotal')->nullable();
-    $table->string('Duracion')->nullable();
-    $table->date('FechaEntrega')->nullable();
+    $table->integer('CantidadVehiculos');
+    $table->string('PrecioNeto');
+    $table->string('PrecioTotal');
+    $table->string('Duracion');
+    $table->date('FechaEntrega');
     $table->date('FechaRecepcion')->nullable();
-    $table->unsignedBigInteger('id_cliente')->nullable();
+    $table->unsignedBigInteger('id_cliente');
     $table->foreign('id_cliente')->references('id_cliente')->on('Clientes');
-    $table->unsignedBigInteger('id_vehiculo')->nullable();
+    $table->unsignedBigInteger('id_vehiculo');
     $table->foreign('id_vehiculo')->references('id_vehiculo')->on('Vehiculos');
-    $table->unsignedBigInteger('id_equipamiento')->nullable();
+    $table->unsignedBigInteger('id_equipamiento');
     $table->foreign('id_equipamiento')->references('id_equipamiento')->on('Equipamientos');
     
     $table->timestamps();
@@ -272,7 +270,7 @@ Schema::create('Arriendos', function (Blueprint $table) {
             $table->integer('Cantidad')->nullable();
             $table->string('Precio')->nullable();
 
-            $table->unsignedBigInteger('id_arriendo')->nullable();
+            $table->unsignedBigInteger('id_arriendo');
             $table->foreign('id_arriendo')->references('id_arriendo')->on('Arriendos');
             $table->timestamps();
         });
@@ -290,24 +288,24 @@ Schema::create('Arriendos', function (Blueprint $table) {
             $table->rememberToken();
             $table->timestamps();
 
-           $table->unsignedBigInteger('id_oficina')->nullable();
-           $table->foreign('id_oficina')->references('id_oficina')->on('Oficinas');
+            $table->unsignedBigInteger('id_oficina');
+            $table->foreign('id_oficina')->references('id_oficina')->on('Oficinas');
         });
 
 /* --------------------------19---------------------------- */
         Schema::create('Conductores', function (Blueprint $table) {
-            $table->bigIncrements('id_conductor');
-            $table->string('NombreConductor')->nullable();
-            $table->string('LicenciaClase')->nullable();
-            $table->string('LicenciaNumero')->nullable();
-            $table->string('LicenciaVencimiento')->nullable();
-            $table->string('LicenciaMunicipalidad')->nullable();
-            $table->string('RutConductor')->unique()->nullable();
-            $table->string('TelefonoConductor')->nullable();
-            $table->string('DireccionConductor')->nullable();
+            $table->bigIncrements('id');
+            $table->string('NombreConductor');
+            $table->string('LicenciaClase');
+            $table->string('LicenciaNumero');
+            $table->string('LicenciaVencimiento');
+            $table->string('LicenciaMunicipalidad');
+            $table->string('RutConductor')->unique();
+            $table->string('TelefonoConductor');
+            $table->string('DireccionConductor');
             
-            $table->unsignedBigInteger('id_cliente')->nullable();
-            $table->unsignedBigInteger('id_vehiculo')->nullable();
+            $table->unsignedBigInteger('id_cliente');
+            $table->unsignedBigInteger('id_vehiculo');
 
             $table->foreign('id_cliente')->references('id_cliente')->on('Clientes');
             $table->foreign('id_vehiculo')->references('id_vehiculo')->on('Vehiculos');
@@ -321,8 +319,8 @@ Schema::create('Arriendos', function (Blueprint $table) {
             $table->string('Descripcion')->nullable();
             $table->date('FechaObservacion')->nullable();
             
-            $table->unsignedBigInteger('id_cliente')->nullable();
-            $table->unsignedBigInteger('id_vehiculo')->nullable();
+            $table->unsignedBigInteger('id_cliente');
+            $table->unsignedBigInteger('id_vehiculo');
 
             $table->foreign('id_cliente')->references('id_cliente')->on('Clientes');
             $table->foreign('id_vehiculo')->references('id_vehiculo')->on('Vehiculos');
