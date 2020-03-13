@@ -7,10 +7,11 @@ use App\Tipos;
 use App\Combustibles;
 use App\Marcas;
 use App\Modelos;
+use App\Oficinas;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-//use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 
 class VehiculosController extends Controller
@@ -25,6 +26,7 @@ class VehiculosController extends Controller
         // $users = DB::table('users')->get();
 
         //return view('user.index', ['users' => $users]);
+        
         $datosVehiculo['vehiculos']=Vehiculos::paginate(50);
         return view('vehiculos.index',$datosVehiculo);
     }
@@ -37,12 +39,60 @@ class VehiculosController extends Controller
     public function create()
     {
         //()
-
+     //   if ($request->ajax()){
+            
+            //$modelosArray[''] = 'Selecciona una modelo';
+           // foreach($modelos as $modelo) {
+             //   $modelos[$modelo->id_marca] = $modelo->NombreModelo;
+            //}
+     //   response()->json($modelosArray);
+        //return response()->json($modelosArray);
+   // }
         
-        $datosmarcas=Marcas::get();
-        $datostipos=Tipos::get();
-        $datos1=Combustibles::get();
-        $datosmodelos=Modelos::get();
+       // $marcasArray[''] = 'Selecciona una marca';
+       // foreach ($marcas as $marca) {
+      //      $marcas[$marca->id_marca] = $marca->NombreMarca;
+      //  }
+        //return $marcasArray;
+
+       // $datosmarcas=Marcas::get();
+
+       $data = DB::table('modelos')
+       ->join('marcas','marcas.id_marca', '=', 'modelos.id_marca')
+       ->select('marcas.NombreMarca', 'modelos.NombreModelo')
+       ->get();
+
+       //$marcas = Marcas::pluck('NombreMarca', 'id_marca')->prepend('Selecciona Marca');
+        
+       // $modelos = Modelos::get();
+        $tipos=Tipos::get();
+        $combustibles=Combustibles::get();
+        $oficinas=Oficinas::get();
+
+        return view('vehiculos.create', [
+            
+            'tipos' => $tipos,
+            'combustibles' => $combustibles,
+            'data'=>$data,
+            'oficinas'=>$oficinas,
+           // 'estados' => $estados,
+            //'ciudades' => $ciudades,
+            //'puestos' => $puestos,
+        ]);
+        //return view('vehiculos.create',compact('marcas','modelos','tipos','combustibles', $marcas, $modelos, $tipos, $combustibles));
+        //$marcas = Marcas::where('id_marca', $request->id_marca)->get();
+        
+        //->join('modelos', 'modelos.id_marca', '=', 'marcas.id_marca');
+        //->join('modelos', 'modelos.id_marca', '=', 'marcas.id_marca');
+        // $modelos = Modelos::where('id_marca', $request->id_marca)->get()
+        
+       // $modelos = Modelos::get();
+      //  ->join('marcas', 'marcas.id_marca', '=', 'modelos.id_marca')
+        //->select('*')
+        //->where('marcas.id_marca', '=', 'modelos.id_marca')
+        //->get();
+        
+        //$datosmodelos=Modelos::get();
 
         //$datos['tipos']=Tipos::get();
         
@@ -50,9 +100,19 @@ class VehiculosController extends Controller
         //$datos['combustibles']=Combustibles::get();
         //error_log(Marcas::get());
 
-        return view('vehiculos.create',compact('datos1','datosmarcas','datostipos','datosmodelos',$datos1, $datosmarcas, $datostipos,$datosmodelos));
+       
         
     }
+    /*
+    public function getModelos(Request $request)
+    {
+        if ($request->ajax()){
+            $modelos = Modelos::where('id_marca', $request->id_marca)->get();
+            foreach($modelos as $modelo) {
+                $modelosArray[$modelo->id_marca] = $modelo->NombreModelo;
+        }
+        return response()->json($modelosArray);
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -61,6 +121,13 @@ class VehiculosController extends Controller
      * @return \Illuminate\Http\Response
      * 
      */
+    public function buscarLocalidad()
+        {
+            $q = trim(\request('marcas'));
+            $results = Marcas::where('NombreMarca', 'LIKE', '%' . $q . '%')->take(15)->get();
+
+           // return Response::json($results);
+        }
     public function store(Request $request)
     {
         
@@ -230,7 +297,7 @@ DB::table('orders')
             'NombrePropietario' => 'required|string|max:100',
             'DireccionPropietario' => 'required|string|max:100',
             //'TipoVehiculo' => 'required|string|max:100',
-            'Descripcion' => 'required|string|max:100',
+            //'Descripcion' => 'required|string|max:100',
             'NumeroPuertas' => 'required|string|max:100',
             'NumeroAsientos' => 'required|string|max:100',
             'CapacidadMaleta' => 'required|string|max:100',
@@ -246,7 +313,7 @@ DB::table('orders')
             'Año' => 'required|string|max:100',
             'Color'  => 'required|string|max:100',
             'NumeroChasis' => 'required|string|max:100',
-            //'Combustible' => 'required|string|max:100',
+           // 'id_combustible' => 'required|integer',
             //'Estado' => 'required|string|max:100',
             // 'Modelo' => 'required|string|max:100',
             'Foto' => 'required|max:10000|mimes:jpeg,png,jpg',
@@ -395,7 +462,7 @@ Schema::create('users', function(Blueprint $table) {
             $datosVehiculo['Foto']=$request->file('Foto')->store('uploads','public');
         }
         //$estado = "Disponible";
-        Vehiculos::where('id','=', $id)->update($datosVehiculo);
+        Vehiculos::where('id_vehiculo','=', $id)->update($datosVehiculo);
         return redirect('vehiculos')->with('Mensaje','Se guardaron cambios en el vehículo ');
 
     }

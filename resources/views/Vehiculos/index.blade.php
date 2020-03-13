@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container">
+<div class="">
     @if(Session::has('Mensaje'))
     <div class="alert alert-success" role="alert">
     {{
@@ -21,10 +21,19 @@
                 <tr>
                     <th>#</th>
                     <th>Foto</th>
-                    <th>Propietario - Rut</th>
-                    <th>Tipo - Marca - Modelo - Patente</th>
-                    <th>Año - Color - Num_chasis</th>    
-                    <th>Combustible - Disponibilidad</th>
+                    <th>Propietario </th>
+                    <th> Rut</th>
+                    <th>Tipo </th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Patente</th>
+                    <th>Año</th>
+                    <th>Color</th>
+                    <th>Num_puertas</th>   
+                    <th>Num_asientos</th>   
+                    <th>Cap_Maleta</th>   
+                    <th>Num_chasis</th>    
+                    <th>Combustible</th>
                     <th>Estado</th>
                     <th>Configuraciones</th>
                 </tr>
@@ -40,12 +49,21 @@
                         <img src="{{ asset('storage'. '/' . $vehiculo->Foto) }}" alt="" class="img-thumbnail img-fluid" width="100">
                 
                     </td>
-                    <td>{{ $vehiculo->Propietario }} | {{ $vehiculo->Rut }}</td>
-                    <td>{{ $vehiculo->Tipo }} | {{ $vehiculo->Marca }} | {{ $vehiculo->Modelo }} | {{ $vehiculo->Patente }}</td>
-                    <td>{{ $vehiculo->Año }} | {{ $vehiculo->Color }} | {{ $vehiculo->NumeroChasis }}</td>
-                    <td>{{ $vehiculo->Combustible }}</td>
-                    <td><button class="btn btn-success">{{ $vehiculo->Estado }}</input></td>
-                    <td>
+                    <td>{{ $vehiculo->NombrePropietario }} </td>
+                    <td> {{ $vehiculo->RutPropietario }}</td>
+                    <td>{{ $vehiculo->id_tipo }} </td>
+                    <td> {{ $vehiculo->Marca }} </td>
+                    <td> {{ $vehiculo->Modelo }} </td>
+                    <td> {{ $vehiculo->Patente }}</td>
+                    <td>{{ $vehiculo->Año }} </td>
+                    <td> {{ $vehiculo->Color }} </td>
+                    <td class="text-center"><button class="btn btn-success btn-sm" value="">{{ $vehiculo->NumeroPuertas }}</button></td>
+                    <td class="text-center"><button class="btn btn-success btn-sm" value="">{{ $vehiculo->NumeroAsientos }}</button></td>
+                    <td> {{ $vehiculo->CapacidadMaleta }}</td>
+                    <td> {{ $vehiculo->NumeroChasis }}</td>
+                    <td>{{ $vehiculo->id_combustible }}</td>
+                    <td><button class="btn btn-success btn-sm" value="">{{ $vehiculo->Estado }}</button></td>
+                    <td class="text-center">
                         
                      <!--<form action="{{ url('/vehiculos/'.$vehiculo->id) }}" method="post" style="display: inline">
                             {{ csrf_field() }}
@@ -55,15 +73,15 @@
                         <!--<a href="{{ url('/vehiculos/'.$vehiculo->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
                         
                         
-                        <a href="{{ url('/clientes/create/' . $vehiculo->id) }}" class="btn btn-warning btn-block">Seleccionar</a>
+                        <a href="{{ url('/clientes/create/' . $vehiculo->id) }}" class="btn btn-warning btn-sm">Seleccionar</a>
                         
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                        Seleccionar</button>
+                        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                        Seleccionar</button>-->
                         
                         
                         
                         <!--<a href="{{ url('/clientes/create') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
-                        <a href="{{ url('/recepcionVehiculo') }}" class="btn btn-info btn-block">Recepción</a>
+                       <!-- <a href="{{ url('/recepcionVehiculo') }}" class="btn btn-info btn-block">Recepción</a>-->
                     </td>
 
                 </tr>

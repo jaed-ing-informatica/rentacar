@@ -71,7 +71,7 @@ var RegionesYcomunas = {
 jQuery(document).ready(function() {
 
     var iRegion = 0;
-    var htmlRegion = '<option value="sin-region">Seleccione región</option>';
+    var htmlRegion = '<option class="btn btn-block btn-primary" value="sin-region">Seleccione región</option>';
     var htmlComunas = '<option value="sin-region">Seleccione comuna</option>';
 
     jQuery.each(RegionesYcomunas.regiones, function() {

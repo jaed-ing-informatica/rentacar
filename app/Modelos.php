@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Modelos extends Model
 {
 
-  protected $table = 'modelos';
+ // protected $table = 'modelos';
 
   protected $fillable = ['NombreModelos','id_marca'];
-    //
+    
 
     //protected $table = 'modelos';
 
@@ -20,4 +20,10 @@ class Modelos extends Model
       //  return Modelos::where('id_marca','=',$id)
         //->get();
     //}
+
+
+
+    public function Marcas(){
+      return $this->belongsTo('App\Marcas','id_marca');
+  }
 }

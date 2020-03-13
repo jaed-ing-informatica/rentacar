@@ -16,14 +16,14 @@ class JoinTableController extends Controller
     public function index()
     {
         //
-        $data = DB::table('provincias')
-        ->join('regiones','regiones.id', '=', 'provincias.region_id')
+        $data = DB::table('modelos')
+        ->join('marcas','marcas.id_marca', '=', 'modelos.id_marca')
         
-       // ->join('provincias', 'provincias.region_id', '=', 'regiones.id')
+       
 
-        ->join('comunas', 'comunas.provincia_id', '=', 'provincias.id')
+       
 
-        ->select('comunas.comuna', 'regiones.region', 'provincias.provincia')
+        ->select('marcas.NombreMarca', 'modelos.NombreModelo')
         ->get();
         return view('join_table', compact('data'));
     }

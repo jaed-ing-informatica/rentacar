@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Marcas extends Model
 {
     //
-    protected $table = 'marcas';
-
     protected $fillable = ['NombreMarca'];
+    public function Modelos(){
+        return $this->belongsTo('App\Modelos','id_marca');
+    }
 }

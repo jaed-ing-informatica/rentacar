@@ -12,6 +12,8 @@
 */
 
 Route::get('/', function () {
+
+    
     return view('auth.login');
 });
 Auth::routes(['register'=>true, 'reset'=>false]);
@@ -31,8 +33,25 @@ Route::get('join_table', 'JoinTableController@index');
 Route::resource('/facturas', 'FacturaController');
 
 Route::resource('/relbase', 'RelbaseController');
+/*
+use App\Modelos;
+use App\Marcas;
+use Illuminate\Http\Response;
 
+use Illuminate\Support\Facades\Input;
 
+Route::get('/ajax-modelo', function(){
+
+    $marcas = Marcas::all();
+    
+    $id_marca = Input::get('id_marca');
+
+    $modelos = Modelos::where('id_marca', '=', $id_marca)->get();
+
+    return Response::json($modelos);
+});*/
+
+//Route::get('marcas', 'VehiculosController@buscarMarcas')->name('marcas.select2');
 
 
 
