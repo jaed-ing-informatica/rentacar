@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\kilometros;
-use App\Vehiculos;
-use App\Clientes;
-use App\Conductor;
+//use App\Vehiculos;
+//use App\Clientes;
+//use App\Conductor;
 use App\Tipos;
 use App\Combustibles;
 use App\Oficinas;
