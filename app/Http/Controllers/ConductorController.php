@@ -14,8 +14,8 @@ class ConductorController extends Controller
      */
     public function index()
     {
-       $datosConductor['conductores']=Conductor::paginate(50);
-        return view('conductores.index',$datosConductor);
+       $datosconductor['datosconductor']=Conductor::paginate(50);
+        return view('conductores.index',$datosconductor);
     }
 
     /**

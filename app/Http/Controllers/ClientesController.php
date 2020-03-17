@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Clientes;
 use App\Vehiculos;
-use App\Kilometros;
+use App\Tipos;
+use App\Combustibles;
+use App\Oficinas;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ClientesController extends Controller
 {
@@ -28,8 +33,47 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        //
+
+       
+        
+        //->select('marcas.NombreMarca', 'modelos.NombreModelo')
+        //->get();
+ 
+        //$marcas = Marcas::pluck('NombreMarca', 'id_marca')->prepend('Selecciona Marca');
+         
+        // $modelos = Modelos::get();
+       /*  $tipos=Tipos::get();
+         $combustibles=Combustibles::get();
+         $oficinas=Oficinas::get();
+ 
+         
+        $datos = DB::select(DB::raw("select * from vehiculos,clientes where (Patente = '$Patente')"));*/
+       // $datos = DB::select(DB::raw("select Marca, Patente, Modelo, id_vehiculo from vehiculos where Patente = $Patente","select id_cliente, NombreCliente from clientes where Patente = $Patente");
+       // dd($datos);
+       // $datos['datos'] = DB::table('vehiculos')          
+       // ->join('clientes','clientes.id_cliente', '=', 'clientes.id_cliente')
+       // ->join('modelos','modelos.id_marca', '=', 'marcas.id_marca')
+       // ->select('vehiculos.Marca','vehiculos.Patente','vehiculos.Modelo','vehiculos.id_vehiculo')
+       // ->where('Patente','=',$Patente)
+       // ->get();
+       // dd($datos);
+        //DB::table('arriendos')->insert(['id_vehiculo' => '$vehiculos->id_vehiculo']);
+        
+       // $datos->estado = 'Arrendado';
+       //dd($datos);
+       
         return view('clientes.create');
+        //return view('clientes.create',$datos);
+       /* return view('clientes.create', [
+             
+            'tipos' => $tipos,
+            'combustibles' => $combustibles,
+            'datos'=>$datos,
+            'oficinas'=>$oficinas,
+           // 'estados' => $estados,
+            //'ciudades' => $ciudades,
+            //'puestos' => $puestos,
+        ]);*/
     }
 
     /**
@@ -56,6 +100,8 @@ class ClientesController extends Controller
                 'CorreoCliente' => 'required|string|max:100',
                 'Foto' => 'required|max:10000|mimes:jpeg,png,jpg',
         ];
+       
+        
 
         $Mensaje=["required" => 'El :attribute es requerido'];
 
@@ -72,6 +118,41 @@ class ClientesController extends Controller
 
 //        return response()->json($datosVehiculo);
     }
+
+    public function registraContrato(Request $request, $Patente)
+    {
+
+        $tipos=Tipos::get();
+        $combustibles=Combustibles::get();
+        $oficinas=Oficinas::get();
+
+        
+       $datosv = DB::select(DB::raw("select * from vehiculos where (Patente = '$Patente')"));
+       $datosc = DB::select(DB::raw("select * from clientes"));
+
+       return view('clientes.arriendo', [
+             
+        'tipos' => $tipos,
+        'combustibles' => $combustibles,
+        'datosv'=>$datosv,
+        'datosc'=>$datosc,
+        'oficinas'=>$oficinas,
+       // 'estados' => $estados,
+        //'ciudades' => $ciudades,
+        //'puestos' => $puestos,
+    ]);
+        
+    
+}
+
+        //sistematologías propias del virus
+        //provenienncia de regiones de sospecha o contagio
+        //facilitar todo para someter al trabajador a protocolos medicos gastos asumidos por el empleador
+//todo lo relacionado de proteger la vida y salud de los trabajadores
+//responsable de.. no obstante de fuera de lugar de trabajo informatico o computacional la empresa tiene que hacerse cargo
+        //Deben Activar ley de  protocolos  de accidentes
+        
+    
 
     /**
      * Display the specified resource.
@@ -97,9 +178,11 @@ class ClientesController extends Controller
      * @param  \App\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clientes $clientes)
+    public function edit(Clientes $clientes,$id)
     {
         //
+        
+        return view('clientes.edit', compact('cliente'));
     }
 
     /**
@@ -109,9 +192,37 @@ class ClientesController extends Controller
      * @param  \App\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clientes $clientes)
+    public function update(Request $request, Clientes $clientes,$id)
     {
         //
+        $campos=[
+            'RutCliente' => 'required|string|max:100',
+            'NombreCliente' => 'required|string|max:100',
+            'ApellidoPaterno' => 'required|string|max:100',
+            'ApellidoMaterno' => 'required|string|max:100',
+            'DireccionCliente' => 'required|string|max:100',
+            'DireccionComercial' => 'required|string|max:100',
+            'CiudadCliente' => 'required|string|max:100',
+            'CiudadComercial'  => 'required|string|max:100',
+            'FechaNacimientoCliente'  => 'required|string|max:100',
+            'TelefonoCliente' => 'required|string|max:100',
+            'CorreoCliente' => 'required|string|max:100',
+    ];
+    if($request->hasFile('Foto')){
+        $campos+=['Foto'=>'required|max:10000|mimes:jpeg,png,jpg'];
+    }
+    $Mensaje=["required" => 'El :attribute es requiredo'];
+        $this->validate($request, $campos, $Mensaje);
+        $datosCliente=request()->except(['_token','_method']);
+
+        if($request->hasFile('Foto')){
+            $cliente= Clientes::findOrFail($id);
+            Storage::delete(['public/'.$cliente->Foto]);
+            $datosCliente['Foto']=$request->file('Foto')->store('uploads','public');
+        }
+        //$estado = "Disponible";
+        Clientes::where('id_cliente','=', $id)->update($datosCliente);
+        return redirect('clientes')->with('Mensaje','Se guardaron cambios en el cliente ');
     }
 
     /**

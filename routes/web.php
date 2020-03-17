@@ -21,8 +21,9 @@ Auth::routes(['register'=>true, 'reset'=>false]);
 Route::resource('/vehiculos','VehiculosController');
 
 Route::resource('/clientes','ClientesController');
+//Route::resource('/clientes/{id}','ClientesController');
 
-Route::get('/clientes/{id}/contrato','ClientesController@Contrato');
+Route::get('/clientes/create/{id_vehiculo}','ClientesController@registraContrato');
 
 Route::resource('/conductores','ConductorController');
 
@@ -32,7 +33,7 @@ Route::get('join_table', 'JoinTableController@index');
 
 Route::resource('/facturas', 'FacturaController');
 
-Route::resource('/relbase', 'RelbaseController');
+//Route::resource('/relbase', 'RelbaseController');
 /*
 use App\Modelos;
 use App\Marcas;

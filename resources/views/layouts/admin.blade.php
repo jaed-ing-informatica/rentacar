@@ -22,7 +22,28 @@
     <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 
-    
+    <style>
+      .my-flex-container {
+        border: 2px solid green;
+        height: 100px;
+        margin-bottom: 20px;
+      }
+      .my-flex-container-column {
+        border: 2px solid green;
+        height: 200px;
+        margin-bottom: 20px;
+      }
+      .my-flex-item {
+        background-color: lightgrey;
+        border: 1px dotted grey;
+        height: 48px;
+      }
+      .my-flex-item-2 {
+        background-color: lightgrey;
+        border: 1px dotted grey;
+        height: 96px;
+      }
+    </style>
     
     <style>
       .form-control, .btn {
@@ -274,8 +295,11 @@
   
     <!-- jQuery 2.1.4 -->
     <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
+     <!--Pooper-->
+     <script src="{{asset('js/popper.js')}}"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+   
     <!-- AdminLTE App -->
     <script src="{{asset('js/app.min.js')}}"></script>
 

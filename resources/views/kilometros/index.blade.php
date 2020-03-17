@@ -31,7 +31,7 @@
             </thead>
             <tbody>
             
-                @foreach($data as $datas)
+                @foreach($datosvehiculos as $datas)
                             <td>{{ $loop->iteration }}</td>
                             
                             <tr>    
@@ -40,7 +40,7 @@
                             <td></td>
                             
                             <td></td>
-                            <td>{{ $datas->TipoVehiculo  }}{{ $datas->Marca }} {{ $datas->Modelo }}  {{ $datas->Patente }}</td>
+                            <td>{{ $datas->id_vehiculo  }}{{ $datas->Marca }} {{ $datas->Modelo }}  {{ $datas->Patente }}</td>
                             <td> {{ $datas->NombreCliente }} {{ $datas->ApellidoPaterno }} {{ $datas->ApellidoMaterno }}</td>
                             <td>{{ $datas->NombreConductor }}</td>
                             <td>

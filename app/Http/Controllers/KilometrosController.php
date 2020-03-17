@@ -6,6 +6,9 @@ use App\kilometros;
 use App\Vehiculos;
 use App\Clientes;
 use App\Conductor;
+use App\Tipos;
+use App\Combustibles;
+use App\Oficinas;
 
 use Illuminate\Support\Facades\DB;
 
@@ -20,39 +23,49 @@ class KilometrosController extends Controller
      */
     public function index()
     {
+        
+      
 
-        $data = DB::table('vehiculos')
-        ->join('clientes','clientes.id', '=', 'vehiculos.id')
-        ->join('conductors','conductors.id', '=', 'vehiculos.id')
-        //->join('conductors','conductors.id', '=', 'clientes.id')
-        //->join('kilometros','entrada','salida')
-        ->select('vehiculos.TipoVehiculo',
-                    'vehiculos.Marca',
-                    'vehiculos.Modelo',
-                    'vehiculos.Patente', 
-                    'clientes.NombreCliente', 
-                    'clientes.ApellidoPaterno', 
-                    'clientes.ApellidoMaterno', 
-                    'clientes.RutCliente', 
-                    'conductors.NombreConductor')
-        ->get();
-        //return view('join_table', compact('data'));
-        //
-        //$datos = DB::table('kilometros')
-        //->join('vehiculos', 'vehiculos.id')
-        //->join('clientes', 'clientes.id')
-        //->join('conductores', 'conductores.id')
-        //->get();
-        //$data=Vehiculos::paginate(50);
-        //$datosVehiculos=Vehiculos::paginate(50);
-        //$datosKilometro=vehiculos::all();
-        //$datosKilometro=Clientes::all();
-        //$datosKilometro=Conductor::all();
         
-        //$datosVehiculos['vehiculos']=Vehiculos::paginate(50);
-        //$datosClientes['clientes']=Clientes::paginate(50);
+       $datosvehiculos = DB::select(DB::raw("select * from vehiculos, clientes, conductores"));
+      // $datosclientes['$datosvehiculos'] = DB::select(DB::raw("select * from clientes"));
+      
+
+       return view('kilometros.index', [
+       
+        'datosvehiculos'=>$datosvehiculos,
+        //'datosclientes'=>$datosclientes,
+       
+        ]);
+
+
+      
+    }
+    public function ContratoConductor($Patente, $rutCliente, $NombreConductor)
+    {
         
-        return view('kilometros.index', compact('data'));
+        $tipos=Tipos::get();
+        $combustibles=Combustibles::get();
+        $oficinas=Oficinas::get();
+
+        
+       $datosv = DB::select(DB::raw("select * from vehiculos where (Patente = '$Patente')"));
+       $datoscl = DB::select(DB::raw("select * from clientes where (rutCliente = '$rutCliente')"));
+       $datosco = DB::select(DB::raw("select * from conductores where (NombreConductor = '$NombreConductor')"));
+       
+
+       return view('clientes.arriendo', [
+             
+        'tipos' => $tipos,
+        'combustibles' => $combustibles,
+        'datosv'=>$datosv,
+        'datosv'=>$datoscl,
+        'datosc'=>$datosco,
+        'oficinas'=>$oficinas,
+        ]);
+
+
+      
     }
 
     /**

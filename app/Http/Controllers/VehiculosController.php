@@ -423,7 +423,7 @@ Schema::create('users', function(Blueprint $table) {
     public function edit($id)
     {
         //
-        $vehiculo = Vehiculos::findOrFail($id);
+       
         return view('vehiculos.edit', compact('vehiculo'));
     }
 

@@ -4,15 +4,15 @@
 <div class="col-center">
     <div class="container-fluid text-left">
         <div class="row mx-auto p-3">
-            <div class="col-md-8 col-md-offset-5">
+            <div class="col-md-8 ">
                 <div class="card">
                     <div class="card-title">
-                        <div class="col-md-12 col-md-offset-5">
+                        <div class="col-md-12">
                             <h3>{{ $Modo=='Crear' ? 'Agregar Conductor': 'Modificar Conductor' }}</h3></div>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                            <div class="col-md-12 col-md-offset-5">
+                            <div class="col-md-12 ">
 
                             <form action="{{ url('conductores') }}" class="form-horizontal" method="POST" enctype="multipart/form-data">
                                             {{ csrf_field() }} 
@@ -75,7 +75,7 @@
                                                                 @if(isset($cliente->Foto))
                                                                     <br>
                                                                     <img class="img-thumbnail img-fluid" src="{{ asset('storage'. '/' . $cliente->Foto) }}" alt="" width="300">
-                                                                    </br>
+                                                                    
                                                                 @endif
                                                             <input type="file" class="form-control {{ $errors->has('Foto')?'is-invalid':'' }}" name="Foto" id="Foto" >
                                                             {!! $errors->first('Foto','<div class="invalid-feedback">:message</div>') !!}

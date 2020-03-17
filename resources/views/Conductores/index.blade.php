@@ -22,7 +22,7 @@
             </thead>
             <tbody>
         
-                @foreach($conductores as $conductor)
+                @foreach($datosconductor as $conductor)
                 <tr>
                 
                     <td>{{ $loop->iteration }}</td>
@@ -34,12 +34,12 @@
                     <td>{{ $conductor->NombreConductor }} | {{ $conductor->LicenciaClase }} | {{ $conductor->LicenciaNumero }} | {{ $conductor->LicenciaVencimiento }} | {{ $conductor->LicenciaMunicipalidad }}</td>
                     <td>{{ $conductor->DireccionConductor }} | {{ $conductor->TelefonoConductor }} | {{ $conductor->RutConductor }}</td>
                     <td>
-                        <!--<form action="{{ url('/conductors/'.$conductor->id) }}" method="post" style="display: inline">
+                        <!--<form action="{{ url('/conductores/'.$conductor->id) }}" method="post" style="display: inline">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button type="submit" onclick="return confirm('¿Desea Borrar?')" class="btn btn-danger">Borrar</button>
                         </form>-->
-                        <!--<a href="{{ url('/conductors/'.$conductor->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
+                        <!--<a href="{{ url('/conductores/'.$conductor->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
                         <!--<a href="{{ url('/conductores') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
                         <a href="{{ url('/kilometros') }}" class="btn btn-success btn-block">Entrega</a>
                         <a href="{{ url('/recepcion') }}" class="btn btn-primary btn-block">Recepcion</a>
@@ -53,7 +53,7 @@
 
         </table>
 
-{{ $conductores->links() }}
+{{ $datosconductor->links() }}
 
 
 <!-- Modal -->
@@ -80,7 +80,7 @@
                                                     <div class="row col-sm-6">
                                                                     <div class="form-group col-sm-12">
                                                                         <div class="dropdown">
-                                                                                <button id="my-dropdown" class="btn btn-primary dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">conductors Antiguo</button>
+                                                                                <button id="my-dropdown" class="btn btn-primary dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">conductores Antiguo</button>
                                                                                 <div class="dropdown-menu" aria-labelledby="my-dropdown">
                                                                                     <a class="dropdown-item active" id="1" name="1" href="#">Javier</a>
                                                                                     <a class="dropdown-item active" id="2" name="2" href="#">Miguel</a>
@@ -101,7 +101,7 @@
                                             </div>
                                             </form>
                                         </div>
-                                        <form action="{{ url('conductors') }}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ url('conductores') }}" class="form-horizontal" method="POST" enctype="multipart/form-data">
                                             {{ csrf_field() }} 
                                         <div class="modal-body">                                  
                                                 <div class="row">   
@@ -174,7 +174,7 @@
                                                                 @if(isset($conductor->Foto))
                                                                     <br>
                                                                     <img class="img-thumbnail img-fluid" src="{{ asset('storage'. '/' . $conductor->Foto) }}" alt="" width="300">
-                                                                    </br>
+                                                                    
                                                                 @endif
                                                             <input type="file" class="form-control {{ $errors->has('Foto')?'is-invalid':'' }}" name="Foto" id="Foto" >
                                                             {!! $errors->first('Foto','<div class="invalid-feedback">:message</div>') !!}
@@ -182,8 +182,8 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                    <!--<button type="button" href="{{ url('conductors') }}" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>-->
-                                                    <!--<button type="button" href="{{ url('conductors') }}" class="btn btn-primary">Siguiente</button>-->
+                                                    <!--<button type="button" href="{{ url('conductores') }}" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>-->
+                                                    <!--<button type="button" href="{{ url('conductores') }}" class="btn btn-primary">Siguiente</button>-->
                                                     <div class="from-group">
                                                         <button type="submit" class="btn btn-warning" value="{{ 'Siguiente' }}" data-toggle="modal" data-target="#exampleModal">
                                                     </div>

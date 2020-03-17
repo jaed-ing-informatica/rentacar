@@ -18,6 +18,10 @@
         Session::get('Mensaje')
 }}
 @endif
+
+
+
+
 <form action="{{ url('/clientes') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
 
 {{ csrf_field() }}

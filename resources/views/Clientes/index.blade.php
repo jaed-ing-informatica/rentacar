@@ -11,7 +11,7 @@
     
 
 
-    <h2><div class="alert alert-success" role="alert">Vehículo : </h2>
+    <!--<h2><div class="alert alert-success" role="alert">Vehículo : </h2>-->
     <a href="{{ url('clientes/create') }}" class="btn btn-primary btn-block">Crear Nuevo Cliente</a>
     <br/>
         <table class="table table-light table-hover">

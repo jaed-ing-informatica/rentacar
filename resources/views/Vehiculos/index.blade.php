@@ -64,28 +64,20 @@
                     <td>{{ $vehiculo->id_combustible }}</td>
                     <td><button class="btn btn-success btn-sm" value="">{{ $vehiculo->Estado }}</button></td>
                     <td class="text-center">
-                        
                      <!--<form action="{{ url('/vehiculos/'.$vehiculo->id) }}" method="post" style="display: inline">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                            <button type="submit" onclick="return confirm('¿Desea Borrar?')" class="btn btn-danger">Borrar</button>
                     </form>-->
                         <!--<a href="{{ url('/vehiculos/'.$vehiculo->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
-                        
-                        
-                        <a href="{{ url('/clientes/create/' . $vehiculo->id) }}" class="btn btn-warning btn-sm">Seleccionar</a>
-                        
+                        <a href="{{ url('/clientes/create/' . $vehiculo->Patente) }}" class="btn btn-warning btn-sm">Seleccionar</a>
                         <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                         Seleccionar</button>-->
-                        
-                        
-                        
                         <!--<a href="{{ url('/clientes/create') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
                        <!-- <a href="{{ url('/recepcionVehiculo') }}" class="btn btn-info btn-block">Recepción</a>-->
                     </td>
-
                 </tr>
-                    <!-- Modal -->
+                    <!-- Modal
                     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -109,7 +101,7 @@
                                         </div>
                                     </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Modal 
                     <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="example2ModalLongTitle" aria-hidden="true">
