@@ -121,10 +121,10 @@ class VehiculosController extends Controller
      * @return \Illuminate\Http\Response
      * 
      */
-    public function buscarLocalidad()
+    public function buscarVehiculo()
         {
-            $q = trim(\request('marcas'));
-            $results = Marcas::where('NombreMarca', 'LIKE', '%' . $q . '%')->take(15)->get();
+            $consulta = trim(\request('vehiculos'));
+            $results = Vehiculos::where('*', 'LIKE', '%' . $consulta . '%')->take(15)->get();
 
            // return Response::json($results);
         }

@@ -97,10 +97,10 @@
                                                                 <div class="input-group btn-block">
                                                                     
                                                                     <label for="Tipos" class="control-label">{{ 'Tipo Vehiculo' }}</label>
-                                                                    <select id="id_tipo" name="id_tipo" class="form-control btn btn-block btn-info" required>
+                                                                    <select id="id_tipo" name="Tipo" class="form-control btn btn-block btn-info" required>
                                                                         <option>------Seleccionar Tipo Vehículo------</option>
                                                                         @foreach($tipos as $tipo)
-                                                                            <option value="{{ $tipo['id_tipo'] }}">{{ $tipo['Tipo'] }}</option>
+                                                                            <option value="{{ $tipo['Tipo'] }}">{{ $tipo['Tipo'] }}</option>
                                                                         @endforeach
                                                                     </select>
                                                                 </div>

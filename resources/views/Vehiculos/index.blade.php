@@ -21,16 +21,14 @@
                 <tr>
                     <th>#</th>
                     <th>Foto</th>
-                    <th>Propietario </th>
-                    <th> Rut</th>
+                    <th>Propietario | Rut</th>
                     <th>Tipo </th>
                     <th>Marca</th>
                     <th>Modelo</th>
                     <th>Patente</th>
                     <th>Año</th>
                     <th>Color</th>
-                    <th>Num_puertas</th>   
-                    <th>Num_asientos</th>   
+                    <th>N° Puertas | N° Asientos</th>   
                     <th>Cap_Maleta</th>   
                     <th>Num_chasis</th>    
                     <th>Combustible</th>
@@ -49,20 +47,20 @@
                         <img src="{{ asset('storage'. '/' . $vehiculo->Foto) }}" alt="" class="img-thumbnail img-fluid" width="100">
                 
                     </td>
-                    <td>{{ $vehiculo->NombrePropietario }} </td>
-                    <td> {{ $vehiculo->RutPropietario }}</td>
+                    <td>{{ $vehiculo->NombrePropietario }} : {{ $vehiculo->RutPropietario }}</td>
                     <td>{{ $vehiculo->id_tipo }} </td>
                     <td> {{ $vehiculo->Marca }} </td>
                     <td> {{ $vehiculo->Modelo }} </td>
                     <td> {{ $vehiculo->Patente }}</td>
                     <td>{{ $vehiculo->Año }} </td>
                     <td> {{ $vehiculo->Color }} </td>
-                    <td class="text-center"><button class="btn btn-success btn-sm" value="">{{ $vehiculo->NumeroPuertas }}</button></td>
-                    <td class="text-center"><button class="btn btn-success btn-sm" value="">{{ $vehiculo->NumeroAsientos }}</button></td>
+
+                    <td class="text-left"><button class="btn btn-success btn-lg" value="">{{ $vehiculo->NumeroPuertas }}</button>
+                   <button class="btn btn-success btn-lg" value="">{{ $vehiculo->NumeroAsientos }}</button></td>
                     <td> {{ $vehiculo->CapacidadMaleta }}</td>
                     <td> {{ $vehiculo->NumeroChasis }}</td>
                     <td>{{ $vehiculo->id_combustible }}</td>
-                    <td><button class="btn btn-success btn-sm" value="">{{ $vehiculo->Estado }}</button></td>
+                    <td><button class="btn btn-success btn-lg" value="">{{ $vehiculo->Estado }}</button></td>
                     <td class="text-center">
                      <!--<form action="{{ url('/vehiculos/'.$vehiculo->id) }}" method="post" style="display: inline">
                             {{ csrf_field() }}
@@ -70,7 +68,7 @@
                            <button type="submit" onclick="return confirm('¿Desea Borrar?')" class="btn btn-danger">Borrar</button>
                     </form>-->
                         <!--<a href="{{ url('/vehiculos/'.$vehiculo->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
-                        <a href="{{ url('/clientes/create/' . $vehiculo->Patente) }}" class="btn btn-warning btn-sm">Seleccionar</a>
+                        <a href="{{ url('/clientes/create/' . $vehiculo->Patente) }}" class="btn btn-warning btn-lg">Seleccionar</a>
                         <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                         Seleccionar</button>-->
                         <!--<a href="{{ url('/clientes/create') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
