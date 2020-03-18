@@ -140,6 +140,8 @@ Schema::create('Marcas', function (Blueprint $table) {
                     $table->text('Descripcion')->nullable();
                     $table->string('Foto')->nullable();
                     $table->string('Estado')->nullable();
+                    $table->string('Marca')->nullable();
+                    $table->string('Modelo')->nullable();
 
                     $table->string('NumeroPuertas')->nullable();
                     $table->string('NumeroAsientos')->nullable();
@@ -151,9 +153,9 @@ Schema::create('Marcas', function (Blueprint $table) {
                     
 
                   
-                    $table->string('Combustible')->nullable();
+                    $table->string('NombreCombustible')->nullable();
                     $table->string('TipoVehiculo')->nullable();
-                    $table->string('DireccionOficina')->nullable();
+                    $table->string('Direccion')->nullable();
                     $table->timestamps();
                 //    $table->unsignedBigInteger('id_km')->nullable();
                 //    $table->unsignedBigInteger('id_propietario')->nullable();

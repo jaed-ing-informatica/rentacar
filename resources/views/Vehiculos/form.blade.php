@@ -97,10 +97,10 @@
                                                                 <div class="input-group btn-block">
                                                                     
                                                                     <label for="Tipos" class="control-label">{{ 'Tipo Vehiculo' }}</label>
-                                                                    <select id="id_tipo" name="Tipo" class="form-control btn btn-block btn-info" required>
+                                                                    <select id="id_tipo" name="TipoVehiculo" class="form-control btn btn-block btn-info" required>
                                                                         <option>------Seleccionar Tipo Vehículo------</option>
                                                                         @foreach($tipos as $tipo)
-                                                                            <option value="{{ $tipo['Tipo'] }}">{{ $tipo['Tipo'] }}</option>
+                                                                            <option value="{{ $tipo['TipoVehiculo'] }}">{{ $tipo['TipoVehiculo'] }}</option>
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
@@ -186,10 +186,10 @@
                                                                                                 <input type="text" class="form-control {{ $errors->has('Combustible')?'is-invalid':'' }}" name="Combustible" id="Combustible" value="{{ isset($vehiculo->Combustible)?$vehiculo->Combustible:old('Combustible') }}">
                                                                                                 {!! $errors->first('Combustible','<div class="invalid-feedback">:message</div>') !!}-->
                                                                                                 <label for="Combustible" class="control-label">{{ 'Combustible' }}</label>
-                                                                                                <select id="id_combustible" name="id_combustible" class="form-control btn btn-block btn-info" required>
+                                                                                                <select id="id_combustible" name="NombreCombustible" class="form-control btn btn-block btn-info" required>
                                                                                                     <option>------Seleccionar Combustible------</option>
                                                                                                     @foreach($combustibles as $combustible)
-                                                                                                    <option value="{{ $combustible['id_combustible'] }}">{{ $combustible['NombreCombustible'] }}</option>
+                                                                                                    <option value="{{ $combustible['NombreCombustible'] }}">{{ $combustible['NombreCombustible'] }}</option>
                                                                                                     @endforeach
                                                                                                 </select>
                                                                 </div>
@@ -213,10 +213,10 @@
                                         <h5 class="card-title">{{ $Modo=='Crear' ? 'Agregar datos del la oficina': 'Modificar datos del propietario' }}</h5>
                                         <div class="input-group btn btn-block">
                                                                 <label for="Oficina" class="control-label">{{ 'Oficina' }}</label>
-                                                                <select id="id_oficina" name="id_oficina" class="form-control btn btn-block btn-info" required>
+                                                                <select id="id_oficina" name="direccion" class="form-control btn btn-block btn-info" required>
                                                                     <option>------Seleccionar Oficina------</option>
                                                                     @foreach($oficinas as $oficina)
-                                                                    <option value="{{ $oficina['id_oficina'] }}">{{ $oficina['descripcion'] }}</option>
+                                                                    <option value="{{ $oficina['direccion'] }}">{{ $oficina['direccion'] }}</option>
                                                                     @endforeach
                                                                 </select>
                                         </div>
@@ -229,11 +229,11 @@
                                                 @if(isset($vehiculo->Foto))
                                                 <br>
                                                     <img id="vistaPrevia" class="img-thumbnail img-fluid btn-block" src="{{ asset('storage'. '/' . $vehiculo->Foto) }}" alt="">
-                                                </br>
+                                                
                                                 @else
                                                 <br>
                                                     <img id="vistaPrevia" class="img-thumbnail img-fluid btn-block btn-info" src="" alt="">
-                                                </br>
+                                                
                                                 
                                                 @endif
                                                 <input type="file" class="form-control btn btn-info{{ $errors->has('Foto')?'is-invalid':'' }}" name="Foto" id="Foto" >

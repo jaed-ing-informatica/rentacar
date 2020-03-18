@@ -11,6 +11,6 @@ class Tipos extends Model
     
     
     protected $fillable = [
-        'id_tipo','Tipo',
+        'id_tipoVehiculo','TipoVehiculo',
     ];
 }
