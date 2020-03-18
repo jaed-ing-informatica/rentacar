@@ -293,6 +293,7 @@ Schema::create('Users', function (Blueprint $table) {
             
             $table->string('RutCliente')->nullable();
             $table->string('Patente')->nullable();
+            $table->string('Foto')->nullable();
 
           //  $table->foreign('id_cliente')->references('id_cliente')->on('Clientes');
           //  $table->foreign('id_vehiculo')->references('id_vehiculo')->on('Vehiculos');

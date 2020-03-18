@@ -142,6 +142,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
+                <li><a href="{{ url('vehiculos/create') }}"><i class="fa fa-car"></i> Registrar</a></li>
               <li><a href="{{ url('vehiculos') }}"><i class="fa fa-car"></i> Lista</a></li>
               </ul>
             </li>
@@ -153,8 +154,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-              <li><a href="{{ url('clientes') }}"><i class="fa fa-child"></i> Lista</a></li>
-           
+              <li><a href="{{ url('clientes/create') }}"><i class="fa fa-child"></i> Agregar Cliente</a></li>
+              <li><a href="{{ url('clientes') }}"><i class="fa fa-car"></i> Lista</a></li>
               </ul>
             </li>
             <!-- menu Conductores -->
@@ -165,7 +166,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-              <li><a href="{{ url('conductores') }}"><i class="fa fa-street-view"></i> Lista</a></li>
+                <li><a href="{{ url('conductores/create') }}"><i class="fa fa-street-view"></i> Agregar Conductor</a></li>
+                <li><a href="{{ url('conductores') }}"><i class="fa fa-street-view"></i> Lista</a></li>
               </ul>
             </li>
             <!-- menu kilometros -->
@@ -177,6 +179,66 @@
               </a>
               <ul class="treeview-menu">
               <li><a href="{{ url('kilometros') }}"><i class="fa fa-circle-o"></i> Lista</a></li>
+               
+              </ul>
+            </li>
+             <!-- menu kilometros -->
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-tachometer"></i>
+                <span>Precios Arriendos</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+              <li><a href="{{ url('precios') }}"><i class="fa fa-circle-o"></i> Lista</a></li>
+               
+              </ul>
+            </li>
+             <!-- menu kilometros -->
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-tachometer"></i>
+                <span>Mantenimientos</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+              <li><a href="{{ url('mantenimiento') }}"><i class="fa fa-circle-o"></i> Lista</a></li>
+               
+              </ul>
+            </li>
+             <!-- menu kilometros -->
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-tachometer"></i>
+                <span>Arrendados</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+              <li><a href="{{ url('arrendados') }}"><i class="fa fa-circle-o"></i> Lista</a></li>
+               
+              </ul>
+            </li>
+             <!-- menu kilometros -->
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-tachometer"></i>
+                <span>Usuarios</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('usuarios') }}"><i class="fa fa-circle-o"></i> Lista</a></li>
+               
+              </ul>
+            </li>
+             <!-- menu kilometros -->
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-tachometer"></i>
+                <span>Reportes</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+              <li><a href="{{ url('reportes') }}"><i class="fa fa-circle-o"></i> Lista</a></li>
                
               </ul>
             </li>

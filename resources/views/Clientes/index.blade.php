@@ -183,7 +183,7 @@
                                                                 @if(isset($cliente->Foto))
                                                                     <br>
                                                                     <img class="img-thumbnail img-fluid" src="{{ asset('storage'. '/' . $cliente->Foto) }}" alt="" width="300">
-                                                                    </br>
+                                                                    
                                                                 @endif
                                                             <input type="file" class="form-control {{ $errors->has('Foto')?'is-invalid':'' }}" name="Foto" id="Foto" >
                                                             {!! $errors->first('Foto','<div class="invalid-feedback">:message</div>') !!}

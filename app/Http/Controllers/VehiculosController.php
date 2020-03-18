@@ -420,11 +420,13 @@ Schema::create('users', function(Blueprint $table) {
      * @param  \App\Vehiculos  $vehiculos
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($Patente)
     {
         //
+
+        $datosVehiculo['vehiculos']=Vehiculos::paginate(50);
        
-        return view('vehiculos.edit', compact('vehiculo'));
+        return view('vehiculos.edit', compact('$datosVehiculos'));
     }
 
     /**

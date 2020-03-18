@@ -23,12 +23,18 @@
             <div class="card-body bg-aqua">
                 
                     <table class="table table-light">
-                            <tr>
-                                    <td class="col-md-4">
-                                            <h3>Vehiculo seleccionado</h3>
-                                    </td>
-                            </tr>
-                            @foreach($datosv as $vehiculo)
+                            <thead>
+                                <tr>
+                                        <td class="col-md-4">
+                                                <h3>Vehiculo seleccionado</h3>
+                                        </td>
+                                        
+                                </tr>
+
+                            </thead>
+
+                            
+                            @foreach($datosvehiculos as $vehiculo)
                             <tr>                                
                                     <td class="col-md-4">
                                             Marca<h4 class="text-black"><button disabled class="btn btn-muted btn-light"><b>{{ $vehiculo->Marca }}</b></button></h4>
@@ -44,16 +50,30 @@
                             </tr>
                             @endforeach
                             <tr>
-                                    <td class="col-md-6">
-                                            <label for="Clientes" class="control-label" >{{ 'Tipo Cliente' }}</label>
-                                            <select id="id_cliente" name="id_cliente" onchange="enviar_valores(this.value);" class="form-control btn btn-block btn-info" required>
+                                    <td class="col-md-3">
+                                            <label for="Clientes" class="control-label" >{{ 'Nombre Cliente' }}</label>
+                                            <select id="id_cliente" name="RutCliente" onchange="enviar_valores(this.value);" class="form-control btn btn-block btn-info" required>
                                                 <option>------Seleccionar Cliente------</option>
-                                                @foreach($datosc as $cliente)
+                                                @foreach($datosclientes as $cliente)
                                                     <option value="{{ $cliente->RutCliente }}">{{ $cliente->NombreCliente }}</option>
                                                 @endforeach
                                             </select>
                                     </td>
-                                    <td class="col-md-6">
+                                    <td class="col-md-3">
+                                        <a href="{{ url('clientes/create') }}" class="btn btn-block btn-primary">
+                                                        Crear Nuevo Cliente
+                                                </a>
+                                        </td>
+                                    <td class="col-md-3">
+                                        <label for="Clientes" class="control-label" >{{ 'Tipo Cliente' }}</label>
+                                        <select id="id_cliente" name="RutCliente" onchange="enviar_valores(this.value);" class="form-control btn btn-block btn-info" required>
+                                            <option>------Seleccionar Tipo Cliente------</option>
+                                            @foreach($datosTiposClientes as $clientetipo)
+                                                <option value="{{ $clientetipo->NombreTipoCliente }}">{{ $clientetipo->NombreTipoCliente }}</option>
+                                            @endforeach
+                                        </select>
+                                </td>
+                                    <td class="col-md-3">
                                         Continuar el Arriendo
                                         <a href="{{ url('/conductores/create/' . $vehiculo->Patente .'/'. $cliente->RutCliente) }}" class="btn btn-warning btn-block">Seleccionar</a>
                                     </td>

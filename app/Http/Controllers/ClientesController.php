@@ -7,6 +7,7 @@ use App\Vehiculos;
 use App\Tipos;
 use App\Combustibles;
 use App\Oficinas;
+use App\TipoCliente;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -125,18 +126,21 @@ class ClientesController extends Controller
         $tipos=Tipos::get();
         $combustibles=Combustibles::get();
         $oficinas=Oficinas::get();
+        $datosTiposClientes=TipoCliente::get();
 
         
-       $datosv = DB::select(DB::raw("select * from vehiculos where (Patente = '$Patente')"));
-       $datosc = DB::select(DB::raw("select * from clientes"));
+       $datosvehiculos = DB::select(DB::raw("select * from vehiculos where (Patente = '$Patente')"));
+       $datosclientes = DB::select(DB::raw("select * from clientes"));
 
        return view('clientes.arriendo', [
              
+        
+        'datosvehiculos'=>$datosvehiculos,
+        'datosclientes'=>$datosclientes,
         'tipos' => $tipos,
         'combustibles' => $combustibles,
-        'datosv'=>$datosv,
-        'datosc'=>$datosc,
         'oficinas'=>$oficinas,
+        'datosTiposClientes' =>$datosTiposClientes,
        // 'estados' => $estados,
         //'ciudades' => $ciudades,
         //'puestos' => $puestos,
