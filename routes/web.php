@@ -33,6 +33,13 @@ Route::get('join_table', 'JoinTableController@index');
 
 Route::resource('/facturas', 'FacturaController');
 
+Route::resource('/PreciosArriendos','PreciosController');
+
+Route::resource('/Mantenimientos','MantencionesController');
+
+Route::resource('/Arrendados','ArriendosController');
+
+Route::resource('/Reportes','ReportesController');
 //Route::resource('/relbase', 'RelbaseController');
 /*
 use App\Modelos;

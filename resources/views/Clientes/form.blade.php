@@ -19,11 +19,11 @@
                                                         <div class="from-group col-md-6">
         
                                                                 <label for="RutCliente" class="control-label">{{ 'Rut Cliente' }}</label>
-                                                                <input type="text" class="form-control {{ $errors->has('RutCliente')?'is-invalid':'' }}" name="RutCliente" id="RutCliente" value="{{ isset($cliente->RutCliente)?$cliente->RutCliente:old('RutCliente') }}">
+                                                                <input type="text" class="form-control btn-info{{ $errors->has('RutCliente')?'is-invalid':'' }}" name="RutCliente" id="RutCliente" value="{{ isset($cliente->RutCliente)?$cliente->RutCliente:old('RutCliente') }}">
                                                                 {!! $errors->first('RutCliente','<div class="invalid-feedback">:message</div>') !!}
         
                                                                 <label for="NombreCliente" class="control-label">{{ 'Nombre Cliente' }}</label>
-                                                                <input type="text" class="form-control {{ $errors->has('NombreCliente')?'is-invalid':'' }}" name="NombreCliente" id="NombreCliente" value="{{ isset($cliente->NombreCliente)?$cliente->NombreCliente:old('NombreCliente') }}">
+                                                                <input type="text" class="form-control btn-info{{ $errors->has('NombreCliente')?'is-invalid':'' }}" name="NombreCliente" id="NombreCliente" value="{{ isset($cliente->NombreCliente)?$cliente->NombreCliente:old('NombreCliente') }}">
                                                                 {!! $errors->first('NombreCliente','<div class="invalid-feedback">:message</div>') !!}
         
                                                         </div>
@@ -31,11 +31,11 @@
                                                         <div class="from-group col-md-6">
                                                             
                                                                 <label for="ApellidoPaterno" class="control-label">{{ 'Apellido Paterno' }}</label>
-                                                                <input type="text" class="form-control {{ $errors->has('ApellidoPaterno')?'is-invalid':'' }}" name="ApellidoPaterno" id="ApellidoPaterno" value="{{ isset($cliente->ApellidoPaterno)?$cliente->ApellidoPaterno:old('ApellidoPaterno') }}">
+                                                                <input type="text" class="form-control btn-info{{ $errors->has('ApellidoPaterno')?'is-invalid':'' }}" name="ApellidoPaterno" id="ApellidoPaterno" value="{{ isset($cliente->ApellidoPaterno)?$cliente->ApellidoPaterno:old('ApellidoPaterno') }}">
                                                                 {!! $errors->first('ApellidoPaterno','<div class="invalid-feedback">:message</div>') !!}
                                                                 
                                                                 <label for="ApellidoMaterno" class="control-label">{{ 'Apellido Materno' }}</label>
-                                                                <input type="text" class="form-control {{ $errors->has('ApellidoMaterno')?'is-invalid':'' }}" name="ApellidoMaterno" id="ApellidoMaterno" value="{{ isset($cliente->ApellidoMaterno)?$cliente->ApellidoMaterno:old('ApellidoMaterno') }}">
+                                                                <input type="text" class="form-control btn-info{{ $errors->has('ApellidoMaterno')?'is-invalid':'' }}" name="ApellidoMaterno" id="ApellidoMaterno" value="{{ isset($cliente->ApellidoMaterno)?$cliente->ApellidoMaterno:old('ApellidoMaterno') }}">
                                                                 {!! $errors->first('ApellidoMaterno','<div class="invalid-feedback">:message</div>') !!}
                                                             
                                                         </div>
@@ -43,11 +43,11 @@
                                                         <div class="from-group col-md-6">
         
                                                                 <label for="DireccionCliente" class="control-label">{{ 'Direccion Cliente' }}</label>
-                                                                <input type="text" class="form-control {{ $errors->has('DireccionCliente')?'is-invalid':'' }}" name="DireccionCliente" id="DireccionCliente" value="{{ isset($cliente->DireccionCliente)?$cliente->DireccionCliente:old('DireccionCliente') }}">
+                                                                <input type="text" class="form-control btn-info{{ $errors->has('DireccionCliente')?'is-invalid':'' }}" name="DireccionCliente" id="DireccionCliente" value="{{ isset($cliente->DireccionCliente)?$cliente->DireccionCliente:old('DireccionCliente') }}">
                                                                 {!! $errors->first('DireccionCliente','<div class="invalid-feedback">:message</div>') !!}
         
                                                                 <label for="DireccionComercial" class="control-label">{{ 'Direccion Comercial' }}</label>
-                                                                <input type="text" class="form-control {{ $errors->has('DireccionComercial')?'is-invalid':'' }}" name="DireccionComercial" id="DireccionComercial" value="{{ isset($cliente->DireccionComercial)?$cliente->DireccionComercial:old('DireccionComercial') }}">
+                                                                <input type="text" class="form-control btn-info{{ $errors->has('DireccionComercial')?'is-invalid':'' }}" name="DireccionComercial" id="DireccionComercial" value="{{ isset($cliente->DireccionComercial)?$cliente->DireccionComercial:old('DireccionComercial') }}">
                                                                 {!! $errors->first('DireccionComercial','<div class="invalid-feedback">:message</div>') !!}
                                                             
                                                         </div>
@@ -55,11 +55,11 @@
                                                         <div class="from-group col-md-6">
         
                                                                 <label for="CiudadCliente" class="control-label">{{ 'Ciudad Cliente' }}</label>
-                                                                <input type="text" class="form-control {{ $errors->has('CiudadCliente')?'is-invalid':'' }}" name="CiudadCliente" id="CiudadCliente" value="{{ isset($cliente->CiudadCliente)?$cliente->CiudadCliente:old('CiudadCliente') }}">
+                                                                <input type="text" class="form-control btn-info{{ $errors->has('CiudadCliente')?'is-invalid':'' }}" name="CiudadCliente" id="CiudadCliente" value="{{ isset($cliente->CiudadCliente)?$cliente->CiudadCliente:old('CiudadCliente') }}">
                                                                 {!! $errors->first('CiudadCliente','<div class="invalid-feedback">:message</div>') !!}
                                                                 
                                                                 <label for="CiudadComercial" class="control-label {{ $errors->has('CiudadComercial')?'is-invalid':'' }}">{{ 'Ciudad Comercial' }}</label>
-                                                                <input type="text" class="form-control" name="CiudadComercial" id="CiudadComercial" value="{{ isset($cliente->CiudadComercial)?$cliente->CiudadComercial:old('CiudadComercial') }}">
+                                                                <input type="text" class="form-control btn-info" name="CiudadComercial" id="CiudadComercial" value="{{ isset($cliente->CiudadComercial)?$cliente->CiudadComercial:old('CiudadComercial') }}">
                                                                 {!! $errors->first('CiudadComercial','<div class="invalid-feedback">:message</div>') !!}
         
                                                         </div>
@@ -67,18 +67,37 @@
                                                         <div class="from-group col-md-6">
                                                             
                                                                 <label for="FechaNacimientoCliente" class="control-label">{{ 'Fecha Nacimiento' }}</label>
-                                                                <input type="text" class="form-control {{ $errors->has('FechaNacimientoCliente')?'is-invalid':'' }}" name="FechaNacimientoCliente" id="FechaNacimientoCliente" value="{{ isset($cliente->FechaNacimientoCliente)?$cliente->FechaNacimientoCliente:old('FechaNacimientoCliente') }}">
+                                                                <input type="text" class="form-control btn-info{{ $errors->has('FechaNacimientoCliente')?'is-invalid':'' }}" name="FechaNacimientoCliente" id="FechaNacimientoCliente" value="{{ isset($cliente->FechaNacimientoCliente)?$cliente->FechaNacimientoCliente:old('FechaNacimientoCliente') }}">
                                                                 {!! $errors->first('FechaNacimientoCliente','<div class="invalid-feedback">:message</div>') !!}
         
                                                                 <label for="TelefonoCliente" class="control-label">{{ 'Telefono Cliente' }}</label>
-                                                                <input type="text" class="form-control {{ $errors->has('TelefonoCliente')?'is-invalid':'' }}" name="TelefonoCliente" id="TelefonoCliente" value="{{ isset($cliente->TelefonoCliente)?$cliente->TelefonoCliente:old('TelefonoCliente') }}">
+                                                                <input type="text" class="form-control btn-info{{ $errors->has('TelefonoCliente')?'is-invalid':'' }}" name="TelefonoCliente" id="TelefonoCliente" value="{{ isset($cliente->TelefonoCliente)?$cliente->TelefonoCliente:old('TelefonoCliente') }}">
                                                                 {!! $errors->first('TelefonoCliente','<div class="invalid-feedback">:message</div>') !!}
         
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            
+                                                                <label for="Clientes" class="control-label" >{{ 'Tipo Cliente' }}</label>
+                                                                <select id="id_cliente" name="RutCliente" onchange="enviar_valores(this.value);" class="form-control btn btn-block btn-info" required>
+                                                                    <option>------Seleccionar Tipo Cliente------</option>
+                                                                    @foreach($datosTiposClientes as $clientetipo)
+                                                                        <option value="{{ $clientetipo->NombreTipoCliente }}">{{ $clientetipo->NombreTipoCliente }}</option>
+                                                                    @endforeach
+                                                                </select>
+
+                                                                <label for="MedioPago" class="control-label" >{{ 'Medio Pago' }}</label>
+                                                                <select id="MedioPago" name="MedioPago" onchange="enviar_valores(this.value);" class="form-control btn btn-block btn-info" required>
+                                                                    <option>------Seleccionar Medio Pago------</option>
+                                                                    @foreach($mediopago as $mediopagos)
+                                                                        <option value="{{ $mediopagos->NombreMedioPago }}">{{ $mediopagos->NombreMedioPago }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                        </td>
                                                         </div>
                                                         
                                                         <div class="from-group col-md-6">
                                                                 <label for="CorreoCliente" class="control-label">{{ 'Correo' }}</label>
-                                                                <input type="text" class="form-control {{ $errors->has('CorreoCliente')?'is-invalid':'' }}" name="CorreoCliente" id="CorreoCliente" value="{{ isset($cliente->CorreoCliente)?$cliente->CorreoCliente:old('CorreoCliente') }}">
+                                                                <input type="text" class="form-control btn-info {{ $errors->has('CorreoCliente')?'is-invalid':'' }}" name="CorreoCliente" id="CorreoCliente" value="{{ isset($cliente->CorreoCliente)?$cliente->CorreoCliente:old('CorreoCliente') }}">
                                                                 {!! $errors->first('CorreoCliente','<div class="invalid-feedback">:message</div>') !!}
                                                                 
                                                                 
@@ -86,7 +105,7 @@
                                                                     @if(isset($cliente->Foto))
                                                                         <br>
                                                                         <img class="img-thumbnail img-fluid" src="{{ asset('storage'. '/' . $cliente->Foto) }}" alt="" width="300">
-                                                                        </br>
+                                                                        
                                                                     @endif
                                                                 <input type="file" class="form-control {{ $errors->has('Foto')?'is-invalid':'' }}" name="Foto" id="Foto" >
                                                                 {!! $errors->first('Foto','<div class="invalid-feedback">:message</div>') !!}

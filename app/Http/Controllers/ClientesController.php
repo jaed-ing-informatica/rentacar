@@ -8,6 +8,7 @@ use App\Tipos;
 use App\Combustibles;
 use App\Oficinas;
 use App\TipoCliente;
+use App\MedioPago;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -62,8 +63,9 @@ class ClientesController extends Controller
         
        // $datos->estado = 'Arrendado';
        //dd($datos);
-       
-        return view('clientes.create');
+       $datosTiposClientes['datosTiposClientes']= TipoCliente::get();
+       $mediopago['mediopago']= MedioPago::get();
+        return view('clientes.create', $mediopago, $datosTiposClientes);
         //return view('clientes.create',$datos);
        /* return view('clientes.create', [
              
