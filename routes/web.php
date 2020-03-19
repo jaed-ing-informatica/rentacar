@@ -23,9 +23,14 @@ Route::resource('/vehiculos','VehiculosController');
 Route::resource('/clientes','ClientesController');
 //Route::resource('/clientes/{id}','ClientesController');
 
-Route::get('/clientes/create/{Patente}','ClientesController@registraContrato');
+Route::get('/clientes/create/{Patente}','ClientesController@registraContratoVehiculo');
 
 Route::resource('/conductores','ConductorController');
+
+
+Route::get('/conductores/create/{Patente}/{RutCliente}/{NombreTipoCliente}','ClientesController@registrarContratoCliente');
+
+Route::get('/precios/create/{Patente}/{RutCliente}/{NombreTipoCliente}/{RutConductor}','ClientesController@registrarContratoConductor');
 
 Route::resource('/kilometros','KilometrosController');
 

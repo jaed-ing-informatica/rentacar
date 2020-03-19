@@ -9,6 +9,7 @@ use App\Combustibles;
 use App\Oficinas;
 use App\TipoCliente;
 use App\MedioPago;
+use App\Conductor;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -122,21 +123,83 @@ class ClientesController extends Controller
 //        return response()->json($datosVehiculo);
     }
 
-    public function registraContrato(Request $request, $Patente)
+    public function registrarContratoConductor(Request $request, $Patente, $RutCliente, $NombreTipoCliente,$RutConductor)
+    {
+        //$tipos=Tipos::get();
+       // $combustibles=Combustibles::get();
+       // $oficinas=Oficinas::get();
+        //$datosconductores=Conductor::get();
+
+        
+       $datosvehiculos = DB::select(DB::raw("select * from vehiculos where (Patente = '$Patente')"));
+       $datosclientes = DB::select(DB::raw("select * from clientes where (RutCliente = '$RutCliente')"));
+       $tipoclientes = DB::select(DB::raw("select * from tiposclientes where (NombreTipoCliente = '$NombreTipoCliente')"));
+       $tipoconductor = DB::select(DB::raw("select * from conductores where (RutConductor = '$RutConductor')"));
+
+       return view('precios.create', [
+             
+        'tipoclientes'=>$tipoclientes,  
+        'tipoconductor'=>$tipoconductor,
+        'datosvehiculos'=>$datosvehiculos,
+        'datosclientes'=>$datosclientes,
+        //'tipos' => $tipos,
+        //'combustibles' => $combustibles,
+       // 'oficinas'=>$oficinas,
+        
+       // 'estados' => $estados,
+        //'ciudades' => $ciudades,
+        //'puestos' => $puestos,
+    ]);
+
+    }
+    
+    public function registrarContratoCliente(Request $request, $Patente, $RutCliente, $NombreTipoCliente)
+    {
+        $tipos=Tipos::get();
+        $combustibles=Combustibles::get();
+        $oficinas=Oficinas::get();
+        $datosconductores=Conductor::get();
+
+        
+       $datosvehiculos = DB::select(DB::raw("select * from vehiculos where (Patente = '$Patente')"));
+       $datosclientes = DB::select(DB::raw("select * from clientes where (RutCliente = '$RutCliente')"));
+       $tipoclientes = DB::select(DB::raw("select * from tiposclientes where (NombreTipoCliente = '$NombreTipoCliente')"));
+
+       return view('conductores.arriendo', [
+             
+        'tipoclientes'=>$tipoclientes,  
+        'datosconductores'=>$datosconductores,
+        'datosvehiculos'=>$datosvehiculos,
+        'datosclientes'=>$datosclientes,
+        'tipos' => $tipos,
+        'combustibles' => $combustibles,
+        'oficinas'=>$oficinas,
+        
+       // 'estados' => $estados,
+        //'ciudades' => $ciudades,
+        //'puestos' => $puestos,
+    ]);
+
+    }
+
+    public function registraContratoVehiculo(Request $request, $Patente)
     {
 
         $tipos=Tipos::get();
         $combustibles=Combustibles::get();
         $oficinas=Oficinas::get();
         $datosTiposClientes=TipoCliente::get();
+       
+        
 
         
        $datosvehiculos = DB::select(DB::raw("select * from vehiculos where (Patente = '$Patente')"));
        $datosclientes = DB::select(DB::raw("select * from clientes"));
+       
 
        return view('clientes.arriendo', [
-             
-        
+
+      
         'datosvehiculos'=>$datosvehiculos,
         'datosclientes'=>$datosclientes,
         'tipos' => $tipos,

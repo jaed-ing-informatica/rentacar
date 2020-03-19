@@ -28,14 +28,19 @@
                                         <td class="col-md-4">
                                                 <h3>Vehiculo seleccionado</h3>
                                         </td>
+                                        <td class="col-md-4 text-center align-bottom">
+                                                <a href="{{ url('clientes/create') }}" class="btn btn-md btn-primary">
+                                                Crear Nuevo Cliente
+                                                </a>
+                                        </td>
                                         
                                 </tr>
 
                             </thead>
 
                             
-                            @foreach($datosvehiculos as $vehiculo)
-                            <tr>                                
+                                @foreach($datosvehiculos as $vehiculo)
+                                <tr>                                
                                     <td class="col-md-4">
                                             Marca<h4 class="text-black"><button disabled class="btn btn-muted btn-light"><b>{{ $vehiculo->Marca }}</b></button></h4>
                                     </td>
@@ -47,37 +52,34 @@
                                         Patente
                                            <h4 class="text-black"><button disabled class="btn btn-muted btn-light"><b>{{ $vehiculo->Patente }}</b></button></h4>
                                     </td>
-                            </tr>
-                            @endforeach
-                            <tr>
-                                    <td class="col-md-3">
-                                            <label for="Clientes" class="control-label" >{{ 'Nombre Cliente' }}</label>
-                                            <select id="id_cliente" name="RutCliente" onchange="enviar_valores(this.value);" class="form-control btn btn-block btn-info" required>
-                                                <option>------Seleccionar Cliente------</option>
-                                                @foreach($datosclientes as $cliente)
-                                                    <option value="{{ $cliente->RutCliente }}">{{ $cliente->NombreCliente }}</option>
-                                                @endforeach
-                                            </select>
-                                    </td>
-                                    <td class="col-md-3">
-                                        <a href="{{ url('clientes/create') }}" class="btn btn-block btn-primary">
-                                                        Crear Nuevo Cliente
-                                                </a>
+                                </tr>
+                                @endforeach
+                                <tr>
+                                        <td class="col-md-3">
+                                                <label for="Clientes" class="control-label" >{{ 'Nombre Cliente' }}</label>
+                                                <select id="id_cliente" name="RutCliente" onchange="enviar_valores(this.value);" class="form-control btn btn-block btn-info" required>
+                                                        <option>------Seleccionar Cliente------</option>
+                                                        @foreach($datosclientes as $cliente)
+                                                        <option value="{{ $cliente->RutCliente }}">{{ $cliente->NombreCliente }}</option>
+                                                        @endforeach
+                                                </select>
                                         </td>
-                                    <td class="col-md-3">
-                                        <label for="Clientes" class="control-label" >{{ 'Tipo Cliente' }}</label>
-                                        <select id="id_cliente" name="RutCliente" onchange="enviar_valores(this.value);" class="form-control btn btn-block btn-info" required>
-                                            <option>------Seleccionar Tipo Cliente------</option>
-                                            @foreach($datosTiposClientes as $clientetipo)
-                                                <option value="{{ $clientetipo->NombreTipoCliente }}">{{ $clientetipo->NombreTipoCliente }}</option>
-                                            @endforeach
-                                        </select>
-                                </td>
-                                    <td class="col-md-3">
-                                        Continuar el Arriendo
-                                        <a href="{{ url('/conductores/create/' . $vehiculo->Patente .'/'. $cliente->RutCliente) }}" class="btn btn-warning btn-block">Seleccionar</a>
-                                    </td>
-                            </tr>
+
+                                    
+                                        <td class="col-md-3">
+                                                <label for="Clientes" class="control-label" >{{ 'Tipo Cliente' }}</label>
+                                                <select id="id_cliente" name="NombreTipoCliente" onchange="enviar_valores(this.value);" class="form-control btn btn-block btn-info" required>
+                                                <option>------Seleccionar Tipo Cliente------</option>
+                                                @foreach($datosTiposClientes as $clientetipo)
+                                                        <option value="{{ $clientetipo->NombreTipoCliente }}">{{ $clientetipo->NombreTipoCliente }}</option>
+                                                @endforeach
+                                                </select>
+                                        </td>
+                                        <td class="col-md-3">
+                                                Continuar el Arriendo
+                                                <a href="{{ url('/conductores/create/' . $vehiculo->Patente .'/'. $cliente->RutCliente.'/'.$clientetipo->NombreTipoCliente) }}" class="btn btn-warning btn-block">Seleccionar</a>
+                                        </td>
+                                </tr>
                     </table>
             </div>
     </div>
