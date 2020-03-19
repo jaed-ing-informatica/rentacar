@@ -21,13 +21,13 @@ class KilometrosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($Patente)
     {
         
       
 
         
-       $datosvehiculos = DB::select(DB::raw("select * from vehiculos, clientes, conductores"));
+       $datosvehiculos = DB::select(DB::raw("select * from vehiculos, clientes, conductores, tiposclientes'"));
       // $datosclientes['$datosvehiculos'] = DB::select(DB::raw("select * from clientes"));
       
 

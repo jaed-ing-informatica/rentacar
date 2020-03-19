@@ -32,15 +32,16 @@
             <tbody>
             
                 @foreach($datosvehiculos as $datas)
+                <tr> 
                             <td>{{ $loop->iteration }}</td>
                             
-                            <tr>    
+                               
                             
                             <td></td>
-                            <td></td>
+                           
                             
                             <td></td>
-                            <td>{{ $datas->id_vehiculo  }}{{ $datas->Marca }} {{ $datas->Modelo }}  {{ $datas->Patente }}</td>
+                            <td>{{ $datas->TipoVehiculo  }} {{ $datas->Marca }} {{ $datas->Modelo }} </td>
                             <td> {{ $datas->NombreCliente }} {{ $datas->ApellidoPaterno }} {{ $datas->ApellidoMaterno }}</td>
                             <td>{{ $datas->NombreConductor }}</td>
                             <td>

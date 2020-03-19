@@ -8,6 +8,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <!--<link rel="stylesheet" href="{{asset('css/bootstrap2.min.css')}}">-->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
     <!-- Theme style -->
@@ -50,6 +51,70 @@
         min-height: 38px;
         border-radius: 2px;
     }
+
+
+    div#container {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+div video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+
+
+
+
+
+
+
+
+    .fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
     </style>
     
 
@@ -309,13 +374,20 @@
         
         <!-- Main content -->
         <section class="content">
-          
+          <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="{{ url('/img/videos/videofondo.MP4') }}" type="video/mp4">
+        <!--<source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">-->
+    </video>
+    <div class="container h-150">
+      <div class="d-flex h-100 text-center align-items-center">
+        <div class="w-100 text-white">
           
           <div class="row">
             <div class="col-md-12">
-              <div class="box" style="opacity: 0.91;">
+              <div class="box" style="opacity: 0.91; background-image: url('/img/fondeks/mondo.jpg'); background-repeat: no-repeat;  background-size:cover;">
                 <!-- /.box-header -->
-                      <div class="box-header with-border">
+                      <div class="box-header with-border bg-success">
                         <h3 class="box-title">Sistema de RENTACAR</h3>
                         <div class="box-tools pull-right">
                           <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -368,6 +440,9 @@
     <script src="{{asset('js/vistaPrevia.js')}}"></script>
     <script src="{{ asset('/js/comunasyregiones.js') }}"></script>
     <script src="{{ asset('/js/marcasymodelos.js') }}"></script>
+
+    <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.slim.min.js') }}"></script>
     
   </body>
 </html>
