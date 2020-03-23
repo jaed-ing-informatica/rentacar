@@ -20,7 +20,7 @@
 @endif
 <div class="container">
     <div class="card col-md-12">
-            <div class="card-body bg-aqua">
+            <div class="card-body">
                 
                     <table class="table table-light">
                             <thead>

@@ -24,6 +24,19 @@
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 
     <style>
+      @media only screen and (max-width: 800px) {
+	#unseen table td:nth-child(2), 
+	#unseen table th:nth-child(2) {display: none;}
+}
+ 
+@media only screen and (max-width: 640px) {
+	#unseen table td:nth-child(4),
+	#unseen table th:nth-child(4),
+	#unseen table td:nth-child(7),
+	#unseen table th:nth-child(7),
+	#unseen table td:nth-child(8),
+	#unseen table th:nth-child(8){display: none;}
+}
       .my-flex-container {
         border: 2px solid green;
         height: 100px;
@@ -172,11 +185,11 @@ header .overlay {
 
                    
                     <div class="pull-right">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
+                          <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Cerrar Sesión') }}
-                                    </a>
+                          </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -370,33 +383,35 @@ header .overlay {
 
        <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="background-image: url(img/vehiculo6.jpg); background-size:cover;background-repeat: no-repeat;" >
-        
+     <!-- <div class="content-wrapper" style="background-image: url(img/vehiculo6.jpg); background-size:cover;background-repeat: no-repeat;" >-->
+      <div class="content-wrapper" >  
+     
         <!-- Main content -->
         <section class="content">
-          <div class="overlay"></div>
+     <!--     <div class="overlay"></div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-      <source src="{{ url('/img/videos/videofondo.MP4') }}" type="video/mp4">
-        <!--<source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">-->
-    </video>
+      <source src="{{ url('/img/videos/video.MP4') }}" type="video/mp4">
+        
+    </video>-->
+    <!--<source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4"> antes del cierre video-->
     <div class="container h-150">
       <div class="d-flex h-100 text-center align-items-center">
         <div class="w-100 text-white">
           
           <div class="row">
             <div class="col-md-12">
-              <div class="box" style="opacity: 0.91; background-image: url('/img/fondeks/mondo.jpg'); background-repeat: no-repeat;  background-size:cover;">
+              <!--<div class="box" style="opacity: 0.87; background-image: url('/img/fondeks/mar.jpg'); background-repeat: no-repeat;  background-size:cover;">-->
+                <div class="box" style="opacity: 0.87;">
                 <!-- /.box-header -->
                       <div class="box-header with-border bg-success">
                         <h3 class="box-title">Sistema de RENTACAR</h3>
                         <div class="box-tools pull-right">
                           <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                          
                           <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                         </div>
                       </div>
                       <!-- /.fin_box-header -->
-                <!-- /.box-body -->
+                      <!-- /.box-body -->
                       <div class="box-body">
                   	    <div class="row">
 	                  	    <div class="col-md-12">
@@ -422,27 +437,16 @@ header .overlay {
         <strong>Derechos de Copia &copy; 2020 <a href="www.rentacarmaule.com">RENTACAR</a>.</strong> Todos los derechos reservados.
       </footer>
 
-      
-
-  <!--Select2 dimanic-->
-  
-  
-    <!-- jQuery 2.1.4 -->
-    <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
-     <!--Pooper-->
-     <script src="{{asset('js/popper.js')}}"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
-   
-    <!-- AdminLTE App -->
-    <script src="{{asset('js/app.min.js')}}"></script>
-
-    <script src="{{asset('js/vistaPrevia.js')}}"></script>
-    <script src="{{ asset('/js/comunasyregiones.js') }}"></script>
-    <script src="{{ asset('/js/marcasymodelos.js') }}"></script>
-
-    <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('/js/jquery.slim.min.js') }}"></script>
+    <script src="{{ asset('js/jQuery-2.1.4.min.js') }}"></script>
     
+    <script src="{{ asset('js/popper.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/app.min.js') }}"></script>
+    <script src="{{ asset('js/vistaPrevia.js') }}"></script>
+    <script src="{{ asset('js/comunasyregiones.js') }}"></script>
+    <script src="{{ asset('js/marcasymodelos.js') }}"></script>
+
+  <!-- <script src="{{ asset('js/jquery.slim.min.js') }}"></script>-->
   </body>
 </html>

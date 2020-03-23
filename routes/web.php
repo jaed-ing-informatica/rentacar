@@ -32,6 +32,8 @@ Route::get('/conductores/create/{Patente}/{RutCliente}/{NombreTipoCliente}','Cli
 
 Route::get('/precios/create/{Patente}/{RutCliente}/{NombreTipoCliente}/{RutConductor}','ClientesController@registrarContratoConductor');
 
+Route::get('/kilometros/create/{Patente}/{RutCliente}/{RutConductor}/{NombreTipoCliente}','KilometrosController@registrarContratoKilometros');
+
 Route::resource('/kilometros','KilometrosController');
 
 Route::get('join_table', 'JoinTableController@index');

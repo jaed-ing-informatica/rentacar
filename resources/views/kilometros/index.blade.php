@@ -31,7 +31,7 @@
             </thead>
             <tbody>
             
-                @foreach($datosvehiculos as $datas)
+                @foreach($datosv as $datas)
                 <tr> 
                             <td>{{ $loop->iteration }}</td>
                             

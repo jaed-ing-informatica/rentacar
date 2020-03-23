@@ -59,7 +59,35 @@ class KilometrosController extends Controller
         'tipos' => $tipos,
         'combustibles' => $combustibles,
         'datosv'=>$datosv,
-        'datosv'=>$datoscl,
+        'datoscl'=>$datoscl,
+        'datosc'=>$datosco,
+        'oficinas'=>$oficinas,
+        ]);
+
+
+      
+    }
+
+
+    public function registrarContratoKilometros($Patente, $rutCliente, $NombreConductor)
+    {
+        
+        $tipos=Tipos::get();
+        $combustibles=Combustibles::get();
+        $oficinas=Oficinas::get();
+
+        
+       $datosv = DB::select(DB::raw("select * from vehiculos where (Patente = '$Patente')"));
+       $datoscl = DB::select(DB::raw("select * from clientes where (rutCliente = '$rutCliente')"));
+       $datosco = DB::select(DB::raw("select * from conductores where (NombreConductor = '$NombreConductor')"));
+       
+
+       return view('kilometros.create', [
+             
+        'tipos' => $tipos,
+        'combustibles' => $combustibles,
+        'datosv'=>$datosv,
+        'datoscl'=>$datoscl,
         'datosc'=>$datosco,
         'oficinas'=>$oficinas,
         ]);

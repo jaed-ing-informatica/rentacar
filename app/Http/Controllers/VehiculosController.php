@@ -27,7 +27,7 @@ class VehiculosController extends Controller
 
         //return view('user.index', ['users' => $users]);
         
-        $datosVehiculo['vehiculos']=Vehiculos::paginate(50);
+        $datosVehiculo['vehiculos']=Vehiculos::paginate(5);
         return view('vehiculos.index', $datosVehiculo);
     }
 

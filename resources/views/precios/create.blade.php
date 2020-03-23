@@ -67,7 +67,7 @@
           <p class="lead mb-0">With HTML5 Video and Bootstrap 4</p>-->
 
            
-    <div class="card col-md-8 start-align" style="opacity: 0.71;">
+    <div class="card col-md-8 start-align" style="opacity: 0.85;">
           <div class="card-header bg-success">
             <h3>Datos del Arriendo</h3>
         </div>
@@ -75,94 +75,48 @@
                 <div class="card-body">
     
 
-                    <table class="table table-hover" style="opacity: 0.71;">
+                    <table class="table table-hover" style="opacity: 0.9;">
                         <thead class="bg-success">
-                            <th class="col-md-12">
+                            <th class="col-md-2">
                                 Tipo Cliente
                             </th>
-                           
+                            <th class="col-md-8">
+                                Rut Cliente / Nombre / Apellido Paterno / Materno
+                            </th>
                         </thead>
-                        
                         <tbody class="bg-info">
                             @foreach($tipoclientes as $tipocliente)
                             <tr>
-                                <td class="col-md-12" >
-                                    
-                                    <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
+                                <td class="col-md-2" >
+                                    <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-md" style="opacity: 0.9;">
                                             <b>
                                                 {{ $tipocliente->NombreTipoCliente }}
                                             </b>
                                         </h4>
+                                </td>
+                                @endforeach
+                                @foreach($datosclientes as $clientever)
+                                <td class="col-md-8">
+                                    <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-md" style="opacity: 1;">
+                                        <b>
+                                            {{ $clientever->RutCliente }} / {{ $clientever->NombreCliente }} /  {{ $clientever->ApellidoPaterno }} / {{ $clientever->ApellidoMaterno }}
+                                        </b>
+                                    </h4>
                                 </td>
                             </tr>
                             @endforeach
                             <br>
                         </tbody>
                     </table>
-    
-                        <table class="table table-hover" style="opacity: 0.71;">
+                        <table class="table table-hover" style="opacity: 0.79;">
                             <thead class="bg-success">
-                                <th class="col-md-3">
-                                    Rut Cliente
-                                </th>
-                                <th class="col-md-3">
-                                    Nombre Cliente
-                                </th>
-                                <th class="col-md-3">
-                                    Apellido Paterno
-                                </th>
-                                <th class="col-md-3">
-                                   Apellido Materno
-                                </th>
                             </thead>
-                            
                             <tbody class="bg-info">
-                                @foreach($datosclientes as $clientever)
                                 <tr>
-                                    <td class="col-md-3" >
-                                        
-                                        <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
-                                            <b>
-                                                {{ $clientever->RutCliente }}
-                                            </b>
-                                        </h4>
-                                    </td>
-                                    <td class="col-md-3" >
-                                        
-                                        <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
-                                            <b>
-                                                {{ $clientever->NombreCliente }}
-                                            </b>
-                                        </h4>
-                                    </td>
-                                    <td class="col-md-3" >
-                                        
-                                        <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
-                                            <b>
-                                                {{ $clientever->ApellidoPaterno }}
-                                            </b>
-                                        </h4>
-                                    </td>
-                                    <td class="col-md-3" >
-                                        
-                                        <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
-                                            <b>
-                                                {{ $clientever->ApellidoMaterno }}
-                                            </b>
-                                        </h4>
-                                    </td>
                                 </tr>
-                                @endforeach
-                                
                             </tbody>
                         </table>
-    
-    
-                       
-    
-    
-    
-                        <table class="table table-hover" style="opacity: 0.71;">
+                        <table class="table table-hover" style="opacity: 0.79;">
                             <thead class="bg-success">
                                 <th class="col-md-6">
                                     Rut Conductor:
@@ -171,33 +125,28 @@
                                     Nombre Conductor:
                                 </th>
                             </thead>
-                            
                             <tbody class="bg-info">
                                 @foreach($tipoconductor as $conductor)
                                 <tr>
                                     <td class="col-md-6" >
-                                        
                                         <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
                                                 <b>
                                                     {{ $conductor->RutConductor }}
                                                 </b>
-                                            </h4>
+                                        </h4>
                                     </td>
                                     <td class="col-md-6" >
-                                        
                                         <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
                                                 <b>
                                                     {{ $conductor->NombreConductor }}
                                                 </b>
-                                            </h4>
+                                        </h4>
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-    
-    
-                        <table class="table table-hover" style="opacity: 0.71;">
+                        <table class="table table-hover" style="opacity: 0.79;">
                             <thead class="bg-success">
                                 <th class="col-md-2">
                                     Patente Vehiculo
@@ -214,13 +163,11 @@
                                 <th class="col-md-2">
                                     Color
                                 </th>
-                            </thead>
-                            
+                            </thead>6
                             <tbody class="bg-info">
                                 @foreach($datosvehiculos as $vehiculo)
                                 <tr>
                                     <td class="col-md-2" >
-                                        
                                         <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
                                                 <b>
                                                     {{ $vehiculo->Patente }}
@@ -228,7 +175,6 @@
                                             </h4>
                                     </td>
                                     <td class="col-md-2" >
-                                        
                                         <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
                                                 <b>
                                                     {{ $vehiculo->Marca }}
@@ -236,7 +182,6 @@
                                             </h4>
                                     </td>
                                     <td class="col-md-2" >
-                                        
                                         <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
                                                 <b>
                                                     {{ $vehiculo->Modelo }}
@@ -244,7 +189,6 @@
                                             </h4>
                                     </td>
                                     <td class="col-md-2" >
-                                        
                                         <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
                                                 <b>
                                                     {{ $vehiculo->Año }}
@@ -252,42 +196,32 @@
                                             </h4>
                                     </td>
                                     <td class="col-md-2" >
-                                        
                                         <h4 class="text-black"><button disabled class="btn btn-muted btn-light btn-lg" style="opacity: 1;">
                                                 <b>
                                                     {{ $vehiculo->Color }}
                                                 </b>
                                             </h4>
                                     </td>
-                                   
                                 </tr>
-    
                                 @endforeach
-                               
                             </tbody>
-                            
                         </table>
                         <table>
-                            
                             <tbody>
                                 <tr>
                                     <td class="col-md-6">
-                                    <a class="btn btn-primary" href="{{ url('/conductores/create')}}"> Crear Conductor</a> 
+                                        <a class="btn btn-primary" href="{{ url('/conductores/create') }}"> Crear Conductor</a> 
                                     </td>
                                     <td class="col-md-6">
-                                        <a class="btn btn-success" href=""> Continuar el Arriendo</a>
+                                        <a href="{{ url('/kilometros/create/' . $vehiculo->Patente .'/'. $clientever->RutCliente.'/'. $tipocliente->NombreTipoCliente.'/'. $conductor->RutConductor) }}" class="btn btn-warning btn-block">Continuar el Arriendo</a>    
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
                 </div>
+            </div>
         </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    
+    </div>   
 </div>
 @endsection

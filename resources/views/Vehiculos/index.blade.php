@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-<div class="">
+
+<div class="col-md-12">
     @if(Session::has('Mensaje'))
     <div class="alert alert-success" role="alert">
     {{
@@ -8,25 +9,16 @@
     }}
     </div>
     @endif
-
-    
-    
-    
-        
-    
-    
     <br/>
-        <table class="table table-light table-hover">
+        <table class="table table-light table-hover table-bordered table-striped table-condensed">
             <thead class="thead-light">
                 <tr>
                     <th>#</th>
                     <th>Foto</th>
-                    <th>Propietario | Rut</th>
+                    <th>Propietario / Rut</th>
                     <th>Tipo </th>
                     <th>Marca/Modelo</th>
-                    <th>Patente</th>
-                    <th>Año</th>
-                    <th>Color</th>
+                    <th>Patente / Año / Color</th>
                     <th>N°Puertas/Asientos</th>   
                     <th>Cap_Maleta</th>   
                     <th>N° Chasís</th>    
@@ -50,9 +42,7 @@
                     <td><b>{{ $vehiculo->NombrePropietario }} : {{ $vehiculo->RutPropietario }}</td>
                     <td><b>{{ $vehiculo->TipoVehiculo }} </td>
                     <td><b> {{ $vehiculo->Marca }}  {{ $vehiculo->Modelo }} </td>
-                    <td><b> {{ $vehiculo->Patente }}</td>
-                    <td><b>{{ $vehiculo->Año }} </td>
-                    <td><b> {{ $vehiculo->Color }} </td>
+                    <td><b> {{ $vehiculo->Patente }} / {{ $vehiculo->Año }} / {{ $vehiculo->Color }} </td>
 
                     <td class="text-center"><b>{{ $vehiculo->NumeroPuertas }} /
                   <b>{{ $vehiculo->NumeroAsientos }}</td>
@@ -60,7 +50,7 @@
                     <td><b> {{ $vehiculo->NumeroChasis }}</td>
                     <td><b>{{ $vehiculo->NombreCombustible }}</td>
                     <td><b>{{ $vehiculo->Direccion }}</td>
-                    <td><button class="btn btn-success btn-lg" value=""><b>{{ $vehiculo->Estado }}</button></td>
+                    <td><button class="btn btn-success btn-md" value=""><b>{{ $vehiculo->Estado }}</button></td>
                     <td class="text-center">
                      <!--<form action="{{ url('/vehiculos/'.$vehiculo->id) }}" method="post" style="display: inline">
                             {{ csrf_field() }}
@@ -68,7 +58,7 @@
                            <button type="submit" onclick="return confirm('¿Desea Borrar?')" class="btn btn-danger">Borrar</button>
                     </form>-->
                         <!--<a href="{{ url('/vehiculos/'.$vehiculo->id.'/edit') }}" class="btn btn-warning">Editar</a>-->
-                        <a href="{{ url('/clientes/create/' . $vehiculo->Patente) }}" class="btn btn-warning btn-lg"><b>Seleccionar</a>
+                        <a href="{{ url('/clientes/create/' . $vehiculo->Patente) }}" class="btn btn-warning btn-md"><b>Seleccionar</a>
                         <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                         Seleccionar</button>-->
                         <!--<a href="{{ url('/clientes/create') }}" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Entrega</a>-->
@@ -130,8 +120,8 @@
         </table>
 
 {{ $vehiculos->links() }}
-
-
+</div>
+@endsection
 <!-- Modal -->
             <!--                
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -272,9 +262,9 @@
                                                     </div>
                                             </div>Fin modal-footer
                                             </form>-->
-                            </div><!--fin modal content--> 
-                        </div> <!--Fin modal dialog-->
-                    </div><!--Fin modal fade-->
-</div>
+                         <!--   </div>fin modal content--> 
+                      <!--  </div> Fin modal dialog-->
+                   <!-- </div>Fin modal fade-->
+<!--</div>-->
 
-@endsection
+
